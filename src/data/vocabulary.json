@@ -1,15 +1,1096 @@
-$vocabJson = @"
 [
-  { "id": 1, "german": "Guten Tag", "english": "Good day / Hello", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
-  { "id": 2, "german": "Wie geht es Ihnen?", "english": "How are you? (formal)", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
-  { "id": 3, "german": "Danke, gut", "english": "Thanks, good", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
-  { "id": 4, "german": "Der Apfel", "english": "The apple", "gender": "der", "module": "2. Food & Market", "difficulty": 1 },
-  { "id": 5, "german": "Das Wasser", "english": "The water", "gender": "das", "module": "2. Food & Market", "difficulty": 1 },
-  { "id": 6, "german": "Das Brot", "english": "The bread", "gender": "das", "module": "2. Food & Market", "difficulty": 1 },
-  { "id": 7, "german": "Das Haus", "english": "The house", "gender": "das", "module": "3. Navigation & Living", "difficulty": 2 },
-  { "id": 8, "german": "Die Straße", "english": "The street", "gender": "die", "module": "3. Navigation & Living", "difficulty": 2 },
-  { "id": 9, "german": "Das Auto", "english": "The car", "gender": "das", "module": "3. Navigation & Living", "difficulty": 2 },
-  { "id": 10, "german": "Der Bahnhof", "english": "The train station", "gender": "der", "module": "3. Navigation & Living", "difficulty": 2 }
+  {
+    "id": 1,
+    "type": "phrase",
+    "german": "Guten Morgen",
+    "english": "good morning",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 2,
+    "type": "phrase",
+    "german": "Guten Tag",
+    "english": "hello",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 3,
+    "type": "phrase",
+    "german": "Guten Abend",
+    "english": "good evening",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 4,
+    "type": "phrase",
+    "german": "Gute Nacht",
+    "english": "good night",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 5,
+    "type": "phrase",
+    "german": "Auf Wiedersehen",
+    "english": "goodbye",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 6,
+    "type": "phrase",
+    "german": "Tschüss",
+    "english": "bye",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 7,
+    "type": "phrase",
+    "german": "Bitte",
+    "english": "please",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 8,
+    "type": "phrase",
+    "german": "Danke schön",
+    "english": "thank you",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 9,
+    "type": "phrase",
+    "german": "Vielen Dank",
+    "english": "thank you very much",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 10,
+    "type": "phrase",
+    "german": "Bitte sehr",
+    "english": "you are welcome",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 11,
+    "type": "phrase",
+    "german": "Entschuldigung",
+    "english": "excuse me",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 12,
+    "type": "phrase",
+    "german": "Es tut mir leid",
+    "english": "i am sorry",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 13,
+    "type": "phrase",
+    "german": "Wie geht es Ihnen?",
+    "english": "how are you",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 14,
+    "type": "phrase",
+    "german": "Wie geht's?",
+    "english": "how are you",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 15,
+    "type": "phrase",
+    "german": "Mir geht es gut",
+    "english": "i am doing well",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 16,
+    "type": "phrase",
+    "german": "Nicht so gut",
+    "english": "not so good",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 17,
+    "type": "phrase",
+    "german": "Wie heißen Sie?",
+    "english": "what is your name",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 18,
+    "type": "phrase",
+    "german": "Ich heiße...",
+    "english": "my name is",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 19,
+    "type": "phrase",
+    "german": "Woher kommen Sie?",
+    "english": "where are you from",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 20,
+    "type": "phrase",
+    "german": "Ich komme aus...",
+    "english": "i come from",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 21,
+    "type": "phrase",
+    "german": "Sprechen Sie Englisch?",
+    "english": "do you speak english",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 22,
+    "type": "phrase",
+    "german": "Ich verstehe nicht",
+    "english": "i do not understand",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 23,
+    "type": "phrase",
+    "german": "Können Sie das wiederholen?",
+    "english": "can you repeat that",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 24,
+    "type": "phrase",
+    "german": "Ich weiß nicht",
+    "english": "i do not know",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 25,
+    "type": "phrase",
+    "german": "Ja",
+    "english": "yes",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 26,
+    "type": "phrase",
+    "german": "Nein",
+    "english": "no",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 27,
+    "type": "phrase",
+    "german": "Vielleicht",
+    "english": "maybe",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 28,
+    "type": "phrase",
+    "german": "Kein Problem",
+    "english": "no problem",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 29,
+    "type": "phrase",
+    "german": "Bis später",
+    "english": "see you later",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 30,
+    "type": "phrase",
+    "german": "Bis morgen",
+    "english": "see you tomorrow",
+    "module": "1. Essential Phrases & Social"
+  },
+  {
+    "id": 31,
+    "type": "noun",
+    "german": "Apfel",
+    "gender": "der",
+    "english": "apple",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 32,
+    "type": "noun",
+    "german": "Brot",
+    "gender": "das",
+    "english": "bread",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 33,
+    "type": "noun",
+    "german": "Brötchen",
+    "gender": "das",
+    "english": "bread roll",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 34,
+    "type": "noun",
+    "german": "Käse",
+    "gender": "der",
+    "english": "cheese",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 35,
+    "type": "noun",
+    "german": "Milch",
+    "gender": "die",
+    "english": "milk",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 36,
+    "type": "noun",
+    "german": "Wasser",
+    "gender": "das",
+    "english": "water",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 37,
+    "type": "noun",
+    "german": "Kaffee",
+    "gender": "der",
+    "english": "coffee",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 38,
+    "type": "noun",
+    "german": "Tee",
+    "gender": "der",
+    "english": "tea",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 39,
+    "type": "noun",
+    "german": "Bier",
+    "gender": "das",
+    "english": "beer",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 40,
+    "type": "noun",
+    "german": "Wein",
+    "gender": "der",
+    "english": "wine",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 41,
+    "type": "noun",
+    "german": "Fleisch",
+    "gender": "das",
+    "english": "meat",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 42,
+    "type": "noun",
+    "german": "Fisch",
+    "gender": "der",
+    "english": "fish",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 43,
+    "type": "noun",
+    "german": "Suppe",
+    "gender": "die",
+    "english": "soup",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 44,
+    "type": "noun",
+    "german": "Salat",
+    "gender": "der",
+    "english": "salad",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 45,
+    "type": "noun",
+    "german": "Ei",
+    "gender": "das",
+    "english": "egg",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 46,
+    "type": "noun",
+    "german": "Butter",
+    "gender": "die",
+    "english": "butter",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 47,
+    "type": "noun",
+    "german": "Zucker",
+    "gender": "der",
+    "english": "sugar",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 48,
+    "type": "noun",
+    "german": "Salz",
+    "gender": "das",
+    "english": "salt",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 49,
+    "type": "noun",
+    "german": "Pfeffer",
+    "gender": "der",
+    "english": "pepper",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 50,
+    "type": "noun",
+    "german": "Reis",
+    "gender": "der",
+    "english": "rice",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 51,
+    "type": "noun",
+    "german": "Kartoffel",
+    "gender": "die",
+    "english": "potato",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 52,
+    "type": "noun",
+    "german": "Gemüse",
+    "gender": "das",
+    "english": "vegetables",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 53,
+    "type": "noun",
+    "german": "Obst",
+    "gender": "das",
+    "english": "fruit",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 54,
+    "type": "noun",
+    "german": "Rechnung",
+    "gender": "die",
+    "english": "bill",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 55,
+    "type": "noun",
+    "german": "Speisekarte",
+    "gender": "die",
+    "english": "menu",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 56,
+    "type": "noun",
+    "german": "Kellner",
+    "gender": "der",
+    "english": "waiter",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 57,
+    "type": "phrase",
+    "german": "Die Rechnung, bitte",
+    "english": "the check please",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 58,
+    "type": "phrase",
+    "german": "Ich möchte ein Glas Wasser",
+    "english": "i would like a glass of water",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 59,
+    "type": "phrase",
+    "german": "Guten Appetit",
+    "english": "enjoy your meal",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 60,
+    "type": "phrase",
+    "german": "Prost",
+    "english": "cheers",
+    "module": "2. Food, Dining & Market"
+  },
+  {
+    "id": 61,
+    "type": "noun",
+    "german": "Bahnhof",
+    "gender": "der",
+    "english": "train station",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 62,
+    "type": "noun",
+    "german": "Flughafen",
+    "gender": "der",
+    "english": "airport",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 63,
+    "type": "noun",
+    "german": "Zug",
+    "gender": "der",
+    "english": "train",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 64,
+    "type": "noun",
+    "german": "Bus",
+    "gender": "der",
+    "english": "bus",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 65,
+    "type": "noun",
+    "german": "U-Bahn",
+    "gender": "die",
+    "english": "subway",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 66,
+    "type": "noun",
+    "german": "Straßenbahn",
+    "gender": "die",
+    "english": "tram",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 67,
+    "type": "noun",
+    "german": "Fahrkarte",
+    "gender": "die",
+    "english": "ticket",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 68,
+    "type": "noun",
+    "german": "Gleis",
+    "gender": "das",
+    "english": "platform",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 69,
+    "type": "noun",
+    "german": "Haltestelle",
+    "gender": "die",
+    "english": "stop",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 70,
+    "type": "noun",
+    "german": "Straße",
+    "gender": "die",
+    "english": "street",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 71,
+    "type": "noun",
+    "german": "Platz",
+    "gender": "der",
+    "english": "square",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 72,
+    "type": "noun",
+    "german": "Brücke",
+    "gender": "die",
+    "english": "bridge",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 73,
+    "type": "noun",
+    "german": "Stadt",
+    "gender": "die",
+    "english": "city",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 74,
+    "type": "noun",
+    "german": "Hotel",
+    "gender": "das",
+    "english": "hotel",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 75,
+    "type": "noun",
+    "german": "Zimmer",
+    "gender": "das",
+    "english": "room",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 76,
+    "type": "noun",
+    "german": "Schlüssel",
+    "gender": "der",
+    "english": "key",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 77,
+    "type": "noun",
+    "german": "Ausgang",
+    "gender": "der",
+    "english": "exit",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 78,
+    "type": "noun",
+    "german": "Eingang",
+    "gender": "der",
+    "english": "entrance",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 79,
+    "type": "noun",
+    "german": "Weg",
+    "gender": "der",
+    "english": "way",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 80,
+    "type": "noun",
+    "german": "Karte",
+    "gender": "die",
+    "english": "map",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 81,
+    "type": "phrase",
+    "german": "Wo ist die U-Bahn?",
+    "english": "where is the subway",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 82,
+    "type": "phrase",
+    "german": "Geradeaus",
+    "english": "straight ahead",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 83,
+    "type": "phrase",
+    "german": "Nach links",
+    "english": "to the left",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 84,
+    "type": "phrase",
+    "german": "Nach rechts",
+    "english": "to the right",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 85,
+    "type": "phrase",
+    "german": "Wie komme ich zum Bahnhof?",
+    "english": "how do i get to the station",
+    "module": "3. Navigation, Transit & City"
+  },
+  {
+    "id": 86,
+    "type": "noun",
+    "german": "Haus",
+    "gender": "das",
+    "english": "house",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 87,
+    "type": "noun",
+    "german": "Wohnung",
+    "gender": "die",
+    "english": "apartment",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 88,
+    "type": "noun",
+    "german": "Tür",
+    "gender": "die",
+    "english": "door",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 89,
+    "type": "noun",
+    "german": "Fenster",
+    "gender": "das",
+    "english": "window",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 90,
+    "type": "noun",
+    "german": "Tisch",
+    "gender": "der",
+    "english": "table",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 91,
+    "type": "noun",
+    "german": "Stuhl",
+    "gender": "der",
+    "english": "chair",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 92,
+    "type": "noun",
+    "german": "Bett",
+    "gender": "das",
+    "english": "bed",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 93,
+    "type": "noun",
+    "german": "Küche",
+    "gender": "die",
+    "english": "kitchen",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 94,
+    "type": "noun",
+    "german": "Bad",
+    "gender": "das",
+    "english": "bathroom",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 95,
+    "type": "noun",
+    "german": "Schrank",
+    "gender": "der",
+    "english": "cabinet",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 96,
+    "type": "noun",
+    "german": "Lampe",
+    "gender": "die",
+    "english": "lamp",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 97,
+    "type": "noun",
+    "german": "Uhr",
+    "gender": "die",
+    "english": "clock",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 98,
+    "type": "noun",
+    "german": "Telefon",
+    "gender": "das",
+    "english": "telephone",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 99,
+    "type": "noun",
+    "german": "Buch",
+    "gender": "das",
+    "english": "book",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 100,
+    "type": "noun",
+    "german": "Zeitung",
+    "gender": "die",
+    "english": "newspaper",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 101,
+    "type": "noun",
+    "german": "Geld",
+    "gender": "das",
+    "english": "money",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 102,
+    "type": "noun",
+    "german": "Tasche",
+    "gender": "die",
+    "english": "bag",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 103,
+    "type": "noun",
+    "german": "Koffer",
+    "gender": "der",
+    "english": "suitcase",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 104,
+    "type": "noun",
+    "german": "Kleidung",
+    "gender": "die",
+    "english": "clothing",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 105,
+    "type": "noun",
+    "german": "Schuh",
+    "gender": "der",
+    "english": "shoe",
+    "module": "4. Living, Home & Everyday Life"
+  },
+  {
+    "id": 106,
+    "type": "noun",
+    "german": "Arbeit",
+    "gender": "die",
+    "english": "work",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 107,
+    "type": "noun",
+    "german": "Büro",
+    "gender": "das",
+    "english": "office",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 108,
+    "type": "noun",
+    "german": "Kollege",
+    "gender": "der",
+    "english": "colleague",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 109,
+    "type": "noun",
+    "german": "Chef",
+    "gender": "der",
+    "english": "boss",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 110,
+    "type": "noun",
+    "german": "Computer",
+    "gender": "der",
+    "english": "computer",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 111,
+    "type": "noun",
+    "german": "Nachricht",
+    "gender": "die",
+    "english": "message",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 112,
+    "type": "noun",
+    "german": "Brief",
+    "gender": "der",
+    "english": "letter",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 113,
+    "type": "noun",
+    "german": "Projekt",
+    "gender": "das",
+    "english": "project",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 114,
+    "type": "noun",
+    "german": "Termin",
+    "gender": "der",
+    "english": "appointment",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 115,
+    "type": "noun",
+    "german": "Frage",
+    "gender": "die",
+    "english": "question",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 116,
+    "type": "noun",
+    "german": "Antwort",
+    "gender": "die",
+    "english": "answer",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 117,
+    "type": "noun",
+    "german": "Problem",
+    "gender": "das",
+    "english": "problem",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 118,
+    "type": "noun",
+    "german": "Lösung",
+    "gender": "die",
+    "english": "solution",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 119,
+    "type": "noun",
+    "german": "Vertrag",
+    "gender": "der",
+    "english": "contract",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 120,
+    "type": "phrase",
+    "german": "Ich habe eine Frage",
+    "english": "i have a question",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 121,
+    "type": "phrase",
+    "german": "Wann ist der Termin?",
+    "english": "when is the appointment",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 122,
+    "type": "phrase",
+    "german": "Können Sie mir helfen?",
+    "english": "can you help me",
+    "module": "5. Work, Office & Communication"
+  },
+  {
+    "id": 123,
+    "type": "noun",
+    "german": "Zeit",
+    "gender": "die",
+    "english": "time",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 124,
+    "type": "noun",
+    "german": "Tag",
+    "gender": "der",
+    "english": "day",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 125,
+    "type": "noun",
+    "german": "Nacht",
+    "gender": "die",
+    "english": "night",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 126,
+    "type": "noun",
+    "german": "Woche",
+    "gender": "die",
+    "english": "week",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 127,
+    "type": "noun",
+    "german": "Monat",
+    "gender": "der",
+    "english": "month",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 128,
+    "type": "noun",
+    "german": "Jahr",
+    "gender": "das",
+    "english": "year",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 129,
+    "type": "noun",
+    "german": "Morgen",
+    "gender": "der",
+    "english": "morning",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 130,
+    "type": "noun",
+    "german": "Abend",
+    "gender": "der",
+    "english": "evening",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 131,
+    "type": "noun",
+    "german": "Sonne",
+    "gender": "die",
+    "english": "sun",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 132,
+    "type": "noun",
+    "german": "Mond",
+    "gender": "der",
+    "english": "moon",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 133,
+    "type": "noun",
+    "german": "Wetter",
+    "gender": "das",
+    "english": "weather",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 134,
+    "type": "noun",
+    "german": "Regen",
+    "gender": "der",
+    "english": "rain",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 135,
+    "type": "noun",
+    "german": "Schnee",
+    "gender": "der",
+    "english": "snow",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 136,
+    "type": "noun",
+    "german": "Wind",
+    "gender": "der",
+    "english": "wind",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 137,
+    "type": "noun",
+    "german": "Baum",
+    "gender": "der",
+    "english": "tree",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 138,
+    "type": "noun",
+    "german": "Wald",
+    "gender": "der",
+    "english": "forest",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 139,
+    "type": "noun",
+    "german": "Berg",
+    "gender": "der",
+    "english": "mountain",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 140,
+    "type": "noun",
+    "german": "See",
+    "gender": "der",
+    "english": "lake",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 141,
+    "type": "noun",
+    "german": "Meer",
+    "gender": "das",
+    "english": "sea",
+    "module": "6. Time, Nature & Surroundings"
+  },
+  {
+    "id": 142,
+    "type": "noun",
+    "german": "Fluss",
+    "gender": "der",
+    "english": "river",
+    "module": "6. Time, Nature & Surroundings"
+  }
 ]
-"@
-Set-Content -Path "src/data/vocabulary.json" -Value $vocabJson
