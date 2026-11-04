@@ -13,7 +13,6 @@ function App() {
   const [feedback, setFeedback] = useState(null);
   const [inputVal, setInputVal] = useState('');
 
-  // Extract unique modules dynamically from data source
   const modules = [...new Set(vocabularyData.map(item => item.module))];
 
   const launchModule = (moduleName) => {
@@ -33,14 +32,15 @@ function App() {
   const processAnswer = (isCorrect, correctDisplay) => {
     if (isCorrect) {
       const bonus = Math.floor(streak / 3) + 1;
-      setScore(s => s + (10 * bonus));
+      const pointsEarned = 10 * bonus;
+      setScore(s => s + pointsEarned);
       setStreak(s => s + 1);
-      setFeedback({ success: true, text: CORRECT! + pts });
+      setFeedback({ success: true, text: `CORRECT! +${pointsEarned} pts` });
     } else {
       const newLives = lives - 1;
       setLives(newLives);
       setStreak(0);
-      setFeedback({ success: false, text: MISS! Answer:  });
+      setFeedback({ success: false, text: `MISS! Answer: ${correctDisplay}` });
       if (newLives <= 0) {
         setTimeout(() => setGameState('GAMEOVER'), 1000);
         return;
@@ -56,7 +56,7 @@ function App() {
 
   const handleGenderChoice = (article) => {
     const current = deck[currentIndex];
-    processAnswer(article === current.gender, ${current.gender} );
+    processAnswer(article === current.gender, `${current.gender} ${current.german}`);
   };
 
   const handleTranslationSubmit = (e) => {
@@ -69,7 +69,6 @@ function App() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#0f172a', color: '#f8fafc', fontFamily: 'Inter, system-ui, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
       
-      {/* MODULE CURRICULUM SELECTION */}
       {gameState === 'TITLE' && (
         <div style={{ textAlign: 'center', maxWidth: '550px', background: '#1e293b', padding: '40px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.5)', border: '1px solid #334155' }}>
           <h1 style={{ fontSize: '32px', marginBottom: '8px', color: '#38bdf8' }}>DEUTSCH MÜNDLICH</h1>
@@ -87,7 +86,6 @@ function App() {
         </div>
       )}
 
-      {/* ACTIVE GAMEPLAY */}
       {gameState === 'PLAYING' && deck.length > 0 && (
         <div style={{ width: '100%', maxWidth: '600px', background: '#1e293b', padding: '30px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.5)', border: '1px solid #334155' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', fontSize: '14px', color: '#94a3b8', borderBottom: '1px solid #334155', paddingBottom: '10px' }}>
@@ -110,7 +108,7 @@ function App() {
             </div>
 
             {feedback ? (
-              <div style={{ padding: '16px', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', backgroundColor: feedback.success ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)', color: feedback.success ? '#34d399' : '#f87171', border: \1px solid \\ }}>
+              <div style={{ padding: '16px', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', backgroundColor: feedback.success ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)', color: feedback.success ? '#34d399' : '#f87171', border: `1px solid ${feedback.success ? '#059669' : '#dc2626'}` }}>
                 {feedback.text}
               </div>
             ) : deck[currentIndex].gender === 'phrase' ? (
@@ -138,7 +136,6 @@ function App() {
         </div>
       )}
 
-      {/* GAME OVER SCREEN */}
       {gameState === 'GAMEOVER' && (
         <div style={{ textAlign: 'center', maxWidth: '400px', background: '#1e293b', padding: '40px', borderRadius: '16px', border: '1px solid #334155' }}>
           <h2 style={{ fontSize: '32px', color: '#ef4444', marginBottom: '10px' }}>SESSION COMPLETE</h2>
