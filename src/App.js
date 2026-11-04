@@ -145,7 +145,7 @@ function App() {
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '14px', borderBottom: '1px solid #334155', marginBottom: '18px' }}>
             <span style={{ fontSize: '14px', fontWeight: '700', color: activeMode === 'gender' ? '#38bdf8' : '#10b981' }}>
-              {activeMode === 'gender' ? 'ARTICLE TRAINER' : 'COMMUNICATIVE TRANSLATION'} • <span style={{ color: '#94a3b8', fontWeight: '500' }}>{selectedModule}</span>
+              {activeMode === 'gender' ? 'ARTICLE TRAINER' : 'COMMUNICATIVE TRANSLATION'} • <span style={{ color: '#94a3b8', fontWeight: '500' }}>{activeModule}</span>
             </span>
             <button onClick={() => setView('MENU')} style={{ background: '#334155', border: 'none', color: '#f87171', fontSize: '12px', fontWeight: '700', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Exit</button>
           </div>
