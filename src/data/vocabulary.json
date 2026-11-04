@@ -1,0 +1,12 @@
+[
+  { "id": 1, "german": "Guten Tag", "english": "Good day / Hello", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
+  { "id": 2, "german": "Wie geht es Ihnen?", "english": "How are you? (formal)", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
+  { "id": 3, "german": "Danke, gut", "english": "Thanks, good", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
+  { "id": 4, "german": "Der Apfel", "english": "The apple", "gender": "der", "module": "2. Food & Market", "difficulty": 1 },
+  { "id": 5, "german": "Das Wasser", "english": "The water", "gender": "das", "module": "2. Food & Market", "difficulty": 1 },
+  { "id": 6, "german": "Das Brot", "english": "The bread", "gender": "das", "module": "2. Food & Market", "difficulty": 1 },
+  { "id": 7, "german": "Das Haus", "english": "The house", "gender": "das", "module": "3. Navigation & Living", "difficulty": 2 },
+  { "id": 8, "german": "Die Straße", "english": "The street", "gender": "die", "module": "3. Navigation & Living", "difficulty": 2 },
+  { "id": 9, "german": "Das Auto", "english": "The car", "gender": "das", "module": "3. Navigation & Living", "difficulty": 2 },
+  { "id": 10, "german": "Der Bahnhof", "english": "The train station", "gender": "der", "module": "3. Navigation & Living", "difficulty": 2 }
+]

@@ -1,165 +1,149 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
-// Expanded vocabulary bank categorized for comprehensive practice
-const masterVocabulary = [
-  { german: 'Apfel', english: 'apple', gender: 'der', category: 'Food' },
-  { german: 'Haus', english: 'house', gender: 'das', category: 'Living' },
-  { german: 'Katze', english: 'cat', gender: 'die', category: 'Animals' },
-  { german: 'Wasser', english: 'water', gender: 'das', category: 'Food' },
-  { german: 'Hund', english: 'dog', gender: 'der', category: 'Animals' },
-  { german: 'Buch', english: 'book', gender: 'das', category: 'Education' },
-  { german: 'Auto', english: 'car', gender: 'das', category: 'Travel' },
-  { german: 'Tisch', english: 'table', gender: 'der', category: 'Living' },
-  { german: 'Blume', english: 'flower', gender: 'die', category: 'Nature' },
-  { german: 'Milch', english: 'milk', gender: 'die', category: 'Food' },
-  { german: 'Fenster', english: 'window', gender: 'das', category: 'Living' },
-  { german: 'Straße', english: 'street', gender: 'die', category: 'Travel' },
-  { german: 'Schule', english: 'school', gender: 'die', category: 'Education' },
-  { german: 'Baum', english: 'tree', gender: 'der', category: 'Nature' },
-  { german: 'Sonne', english: 'sun', gender: 'die', category: 'Nature' },
-  { german: 'Kaffee', english: 'coffee', gender: 'der', category: 'Food' },
-  { german: 'Brot', english: 'bread', gender: 'das', category: 'Food' },
-  { german: 'Käse', english: 'cheese', gender: 'der', category: 'Food' },
-  { german: 'Stuhl', english: 'chair', gender: 'der', category: 'Living' },
-  { german: 'Tür', english: 'door', gender: 'die', category: 'Living' }
-];
+import vocabularyData from './data/vocabulary.json';
 
 function App() {
-  const [mode, setMode] = useState('menu');
+  const [gameState, setGameState] = useState('TITLE');
+  const [selectedModule, setSelectedModule] = useState(null);
+  const [deck, setDeck] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
-  const [wordList, setWordList] = useState([]);
+  const [lives, setLives] = useState(3);
   const [feedback, setFeedback] = useState(null);
-  const [userInput, setUserInput] = useState('');
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [inputVal, setInputVal] = useState('');
 
-  const startGame = (selectedMode) => {
-    const shuffled = [...masterVocabulary].sort(() => Math.random() - 0.5);
-    setWordList(shuffled);
+  // Extract unique modules dynamically from data source
+  const modules = [...new Set(vocabularyData.map(item => item.module))];
+
+  const launchModule = (moduleName) => {
+    const filtered = vocabularyData.filter(item => item.module === moduleName);
+    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+    setDeck(shuffled);
+    setSelectedModule(moduleName);
     setCurrentIndex(0);
     setScore(0);
     setStreak(0);
+    setLives(3);
     setFeedback(null);
-    setUserInput('');
-    setShowAnswer(false);
-    setMode(selectedMode);
+    setInputVal('');
+    setGameState('PLAYING');
   };
 
-  const handleGenderAnswer = (selectedGender) => {
-    const current = wordList[currentIndex];
-    if (selectedGender === current.gender) {
-      setScore(score + 1);
-      setStreak(streak + 1);
-      setFeedback({ correct: true, text: Correct!   });
+  const processAnswer = (isCorrect, correctDisplay) => {
+    if (isCorrect) {
+      const bonus = Math.floor(streak / 3) + 1;
+      setScore(s => s + (10 * bonus));
+      setStreak(s => s + 1);
+      setFeedback({ success: true, text: CORRECT! + pts });
     } else {
+      const newLives = lives - 1;
+      setLives(newLives);
       setStreak(0);
-      setFeedback({ correct: false, text: Incorrect. It is   });
+      setFeedback({ success: false, text: MISS! Answer:  });
+      if (newLives <= 0) {
+        setTimeout(() => setGameState('GAMEOVER'), 1000);
+        return;
+      }
     }
+
     setTimeout(() => {
       setFeedback(null);
-      setCurrentIndex((prev) => (prev + 1) % wordList.length);
-    }, 1200);
+      setInputVal('');
+      setCurrentIndex(prev => (prev + 1) % deck.length);
+    }, 1100);
   };
 
-  const handleTypedSubmit = (e) => {
+  const handleGenderChoice = (article) => {
+    const current = deck[currentIndex];
+    processAnswer(article === current.gender, ${current.gender} );
+  };
+
+  const handleTranslationSubmit = (e) => {
     e.preventDefault();
-    const current = wordList[currentIndex];
-    if (userInput.trim().toLowerCase() === current.english.toLowerCase()) {
-      setScore(score + 1);
-      setStreak(streak + 1);
-      setFeedback({ correct: true, text: 'Correct translation!' });
-    } else {
-      setStreak(0);
-      setFeedback({ correct: false, text: Incorrect. Answer:  });
-    }
-    setUserInput('');
-    setTimeout(() => {
-      setFeedback(null);
-      setCurrentIndex((prev) => (prev + 1) % wordList.length);
-    }, 1500);
+    const current = deck[currentIndex];
+    const match = inputVal.trim().toLowerCase() === current.english.toLowerCase();
+    processAnswer(match, current.english);
   };
 
   return (
-    <div style={{ maxWidth: '700px', margin: '40px auto', padding: '25px', fontFamily: 'Segoe UI, sans-serif', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '2px solid #eaeaea', paddingBottom: '15px', marginBottom: '20px' }}>
-        <h1 style={{ margin: 0, fontSize: '24px', color: '#2c3e50' }}>???? German Practice Studio</h1>
-        {mode !== 'menu' && (
-          <button onClick={() => setMode('menu')} style={{ padding: '8px 15px', backgroundColor: '#e74c3c', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Menu</button>
-        )}
-      </header>
-
-      {mode === 'menu' && (
-        <div style={{ textAlign: 'center', padding: '20px 0' }}>
-          <h2>Select Practice Module</h2>
-          <p style={{ color: '#7f8c8d', marginBottom: '30px' }}>Loaded with dynamic vocabulary banks.</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', maxWidth: '400px', margin: '0 auto' }}>
-            <button onClick={() => startGame('gender')} style={{ padding: '15px', fontSize: '18px', backgroundColor: '#3498db', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Der / Die / Das Trainer</button>
-            <button onClick={() => startGame('quiz')} style={{ padding: '15px', fontSize: '18px', backgroundColor: '#2ecc71', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Translation Quiz</button>
-            <button onClick={() => startGame('flashcards')} style={{ padding: '15px', fontSize: '18px', backgroundColor: '#9b59b6', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' }}>Flashcards</button>
+    <div style={{ minHeight: '100vh', backgroundColor: '#0f172a', color: '#f8fafc', fontFamily: 'Inter, system-ui, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+      
+      {/* MODULE CURRICULUM SELECTION */}
+      {gameState === 'TITLE' && (
+        <div style={{ textAlign: 'center', maxWidth: '550px', background: '#1e293b', padding: '40px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.5)', border: '1px solid #334155' }}>
+          <h1 style={{ fontSize: '32px', marginBottom: '8px', color: '#38bdf8' }}>DEUTSCH MÜNDLICH</h1>
+          <p style={{ color: '#94a3b8', marginBottom: '25px' }}>Practical Communication Curriculum</p>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'left' }}>
+            <p style={{ fontSize: '14px', color: '#64748b', fontWeight: 'bold', textTransform: 'uppercase', margin: '0 0 5px 0' }}>Select Communication Module:</p>
+            {modules.map((mod, idx) => (
+              <button key={idx} onClick={() => launchModule(mod)} style={{ padding: '14px 18px', fontSize: '16px', fontWeight: '600', backgroundColor: '#334155', color: '#f8fafc', border: '1px solid #475569', borderRadius: '8px', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span>{mod}</span>
+                <span style={{ fontSize: '12px', color: '#38bdf8' }}>START ?</span>
+              </button>
+            ))}
           </div>
         </div>
       )}
 
-      {mode !== 'menu' && wordList.length > 0 && (
-        <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', background: '#f8f9fa', padding: '12px 20px', borderRadius: '8px', marginBottom: '25px', fontSize: '16px', fontWeight: 'bold' }}>
-            <span>Score: {score}</span>
-            <span>Streak: {streak} ??</span>
-            <span>Word: {currentIndex + 1} / {wordList.length}</span>
+      {/* ACTIVE GAMEPLAY */}
+      {gameState === 'PLAYING' && deck.length > 0 && (
+        <div style={{ width: '100%', maxWidth: '600px', background: '#1e293b', padding: '30px', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.5)', border: '1px solid #334155' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', fontSize: '14px', color: '#94a3b8', borderBottom: '1px solid #334155', paddingBottom: '10px' }}>
+            <span style={{ color: '#38bdf8', fontWeight: '600' }}>{selectedModule}</span>
+            <button onClick={() => setGameState('TITLE')} style={{ background: 'none', border: 'none', color: '#ef4444', cursor: 'pointer', fontWeight: 'bold' }}>? Exit</button>
           </div>
 
-          {mode === 'gender' && (
-            <div style={{ textAlign: 'center', padding: '30px', background: '#fdfefe', border: '1px solid #e1e8ed', borderRadius: '10px' }}>
-              <h3>Select correct grammatical article:</h3>
-              <div style={{ fontSize: '42px', fontWeight: 'bold', margin: '30px 0', color: '#2c3e50' }}>{wordList[currentIndex].german}</div>
-              <p style={{ fontStyle: 'italic', color: '#95a5a6', marginBottom: '30px' }}>Meaning: {wordList[currentIndex].english}</p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-                <button onClick={() => handleGenderAnswer('der')} style={{ padding: '12px 30px', fontSize: '18px', backgroundColor: '#2980b9', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>der</button>
-                <button onClick={() => handleGenderAnswer('die')} style={{ padding: '12px 30px', fontSize: '18px', backgroundColor: '#c0392b', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>die</button>
-                <button onClick={() => handleGenderAnswer('das')} style={{ padding: '12px 30px', fontSize: '18px', backgroundColor: '#27ae60', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>das</button>
-              </div>
-            </div>
-          )}
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px', fontSize: '15px', color: '#94a3b8' }}>
+            <span>SCORE: <strong style={{ color: '#38bdf8' }}>{score}</strong></span>
+            <span>STREAK: <strong style={{ color: '#f59e0b' }}>{streak}x</strong></span>
+            <span>LIVES: <strong style={{ color: '#ef4444' }}>{'??'.repeat(lives)}</strong></span>
+          </div>
 
-          {mode === 'quiz' && (
-            <div style={{ textAlign: 'center', padding: '30px', background: '#fdfefe', border: '1px solid #e1e8ed', borderRadius: '10px' }}>
-              <h3>Translate to English:</h3>
-              <div style={{ fontSize: '42px', fontWeight: 'bold', margin: '30px 0', color: '#2c3e50' }}>{wordList[currentIndex].gender} {wordList[currentIndex].german}</div>
-              <form onSubmit={handleTypedSubmit} style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+          <div style={{ textAlign: 'center', padding: '30px 0' }}>
+            <div style={{ fontSize: '40px', fontWeight: '800', marginBottom: '10px', color: '#f8fafc' }}>
+              {deck[currentIndex].german}
+            </div>
+            <div style={{ fontSize: '15px', color: '#94a3b8', marginBottom: '30px' }}>
+              Translate / Identify Target
+            </div>
+
+            {feedback ? (
+              <div style={{ padding: '16px', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', backgroundColor: feedback.success ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)', color: feedback.success ? '#34d399' : '#f87171', border: \1px solid \\ }}>
+                {feedback.text}
+              </div>
+            ) : deck[currentIndex].gender === 'phrase' ? (
+              <form onSubmit={handleTranslationSubmit}>
                 <input 
                   type="text" 
-                  value={userInput} 
-                  onChange={(e) => setUserInput(e.target.value)} 
-                  placeholder="Type English translation..." 
+                  value={inputVal} 
+                  onChange={e => setInputVal(e.target.value)} 
+                  placeholder="Type English meaning..." 
                   autoFocus
-                  style={{ padding: '12px', fontSize: '16px', width: '250px', border: '1px solid #bdc3c7', borderRadius: '6px' }}
+                  style={{ width: '80%', padding: '14px', fontSize: '16px', borderRadius: '8px', border: '1px solid #475569', backgroundColor: '#0f172a', color: '#fff', outline: 'none', textAlign: 'center', marginBottom: '15px' }}
                 />
-                <button type="submit" style={{ padding: '12px 20px', backgroundColor: '#2980b9', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Submit</button>
-              </form>
-            </div>
-          )}
-
-          {mode === 'flashcards' && (
-            <div style={{ textAlign: 'center', padding: '40px', background: '#fdfefe', border: '1px solid #e1e8ed', borderRadius: '10px' }}>
-              <div style={{ fontSize: '42px', fontWeight: 'bold', margin: '20px 0', color: '#2c3e50' }}>{wordList[currentIndex].gender} {wordList[currentIndex].german}</div>
-              {showAnswer ? (
                 <div>
-                  <p style={{ fontSize: '28px', color: '#27ae60', margin: '20px 0', fontWeight: 'bold' }}>{wordList[currentIndex].english}</p>
-                  <button onClick={() => { setShowAnswer(false); setCurrentIndex((prev) => (prev + 1) % wordList.length); }} style={{ padding: '12px 25px', backgroundColor: '#2980b9', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Next Word</button>
+                  <button type="submit" style={{ padding: '12px 30px', fontSize: '16px', fontWeight: 'bold', backgroundColor: '#38bdf8', color: '#0f172a', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Submit</button>
                 </div>
-              ) : (
-                <button onClick={() => setShowAnswer(true)} style={{ padding: '12px 25px', backgroundColor: '#8e44ad', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>Flip Card</button>
-              )}
-            </div>
-          )}
+              </form>
+            ) : (
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
+                <button onClick={() => handleGenderChoice('der')} style={{ flex: 1, padding: '16px', fontSize: '18px', fontWeight: 'bold', backgroundColor: '#0284c7', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>der</button>
+                <button onClick={() => handleGenderChoice('die')} style={{ flex: 1, padding: '16px', fontSize: '18px', fontWeight: 'bold', backgroundColor: '#db2777', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>die</button>
+                <button onClick={() => handleGenderChoice('das')} style={{ flex: 1, padding: '16px', fontSize: '18px', fontWeight: 'bold', backgroundColor: '#059669', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>das</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
-          {feedback && (
-            <div style={{ marginTop: '20px', padding: '15px', textAlign: 'center', fontSize: '18px', fontWeight: 'bold', borderRadius: '6px', backgroundColor: feedback.correct ? '#d4edda' : '#f8d7da', color: feedback.correct ? '#155724' : '#721c24' }}>
-              {feedback.text}
-            </div>
-          )}
+      {/* GAME OVER SCREEN */}
+      {gameState === 'GAMEOVER' && (
+        <div style={{ textAlign: 'center', maxWidth: '400px', background: '#1e293b', padding: '40px', borderRadius: '16px', border: '1px solid #334155' }}>
+          <h2 style={{ fontSize: '32px', color: '#ef4444', marginBottom: '10px' }}>SESSION COMPLETE</h2>
+          <p style={{ color: '#94a3b8', fontSize: '18px', marginBottom: '20px' }}>Final Score: <strong style={{ color: '#38bdf8' }}>{score}</strong></p>
+          <button onClick={() => setGameState('TITLE')} style={{ padding: '12px 25px', fontSize: '16px', fontWeight: 'bold', backgroundColor: '#38bdf8', color: '#0f172a', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Return to Curriculum</button>
         </div>
       )}
     </div>
