@@ -1,3 +1,4 @@
+$vocabJson = @"
 [
   { "id": 1, "german": "Guten Tag", "english": "Good day / Hello", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
   { "id": 2, "german": "Wie geht es Ihnen?", "english": "How are you? (formal)", "gender": "phrase", "module": "1. Greetings & Social", "difficulty": 1 },
@@ -10,3 +11,5 @@
   { "id": 9, "german": "Das Auto", "english": "The car", "gender": "das", "module": "3. Navigation & Living", "difficulty": 2 },
   { "id": 10, "german": "Der Bahnhof", "english": "The train station", "gender": "der", "module": "3. Navigation & Living", "difficulty": 2 }
 ]
+"@
+Set-Content -Path "src/data/vocabulary.json" -Value $vocabJson
