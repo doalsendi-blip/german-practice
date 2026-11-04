@@ -1,1096 +1,857 @@
 [
   {
     "id": 1,
-    "type": "phrase",
-    "german": "Guten Morgen",
-    "english": "good morning",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 2,
-    "type": "phrase",
-    "german": "Guten Tag",
-    "english": "hello",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 3,
-    "type": "phrase",
-    "german": "Guten Abend",
-    "english": "good evening",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 4,
-    "type": "phrase",
-    "german": "Gute Nacht",
-    "english": "good night",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 5,
-    "type": "phrase",
-    "german": "Auf Wiedersehen",
-    "english": "goodbye",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 6,
-    "type": "phrase",
-    "german": "Tschüss",
-    "english": "bye",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 7,
-    "type": "phrase",
-    "german": "Bitte",
-    "english": "please",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 8,
-    "type": "phrase",
-    "german": "Danke schön",
-    "english": "thank you",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 9,
-    "type": "phrase",
-    "german": "Vielen Dank",
-    "english": "thank you very much",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 10,
-    "type": "phrase",
-    "german": "Bitte sehr",
-    "english": "you are welcome",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 11,
-    "type": "phrase",
-    "german": "Entschuldigung",
-    "english": "excuse me",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 12,
-    "type": "phrase",
-    "german": "Es tut mir leid",
-    "english": "i am sorry",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 13,
-    "type": "phrase",
-    "german": "Wie geht es Ihnen?",
-    "english": "how are you",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 14,
-    "type": "phrase",
-    "german": "Wie geht's?",
-    "english": "how are you",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 15,
-    "type": "phrase",
-    "german": "Mir geht es gut",
-    "english": "i am doing well",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 16,
-    "type": "phrase",
-    "german": "Nicht so gut",
-    "english": "not so good",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 17,
-    "type": "phrase",
-    "german": "Wie heißen Sie?",
-    "english": "what is your name",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 18,
-    "type": "phrase",
-    "german": "Ich heiße...",
-    "english": "my name is",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 19,
-    "type": "phrase",
-    "german": "Woher kommen Sie?",
-    "english": "where are you from",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 20,
-    "type": "phrase",
-    "german": "Ich komme aus...",
-    "english": "i come from",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 21,
-    "type": "phrase",
-    "german": "Sprechen Sie Englisch?",
-    "english": "do you speak english",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 22,
-    "type": "phrase",
-    "german": "Ich verstehe nicht",
-    "english": "i do not understand",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 23,
-    "type": "phrase",
-    "german": "Können Sie das wiederholen?",
-    "english": "can you repeat that",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 24,
-    "type": "phrase",
-    "german": "Ich weiß nicht",
-    "english": "i do not know",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 25,
-    "type": "phrase",
-    "german": "Ja",
-    "english": "yes",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 26,
-    "type": "phrase",
-    "german": "Nein",
-    "english": "no",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 27,
-    "type": "phrase",
-    "german": "Vielleicht",
-    "english": "maybe",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 28,
-    "type": "phrase",
-    "german": "Kein Problem",
-    "english": "no problem",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 29,
-    "type": "phrase",
-    "german": "Bis später",
-    "english": "see you later",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 30,
-    "type": "phrase",
-    "german": "Bis morgen",
-    "english": "see you tomorrow",
-    "module": "1. Essential Phrases & Social"
-  },
-  {
-    "id": 31,
-    "type": "noun",
-    "german": "Apfel",
-    "gender": "der",
-    "english": "apple",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 32,
-    "type": "noun",
-    "german": "Brot",
-    "gender": "das",
-    "english": "bread",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 33,
-    "type": "noun",
-    "german": "Brötchen",
-    "gender": "das",
-    "english": "bread roll",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 34,
-    "type": "noun",
-    "german": "Käse",
-    "gender": "der",
-    "english": "cheese",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 35,
-    "type": "noun",
-    "german": "Milch",
-    "gender": "die",
-    "english": "milk",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 36,
     "type": "noun",
     "german": "Wasser",
     "gender": "das",
     "english": "water",
-    "module": "2. Food, Dining & Market"
+    "level": 1,
+    "tip": "Cognate Shift: English 't' -> German 'ss' (water -> Wasser, street -> Straße). Neutral liquid base."
   },
   {
-    "id": 37,
-    "type": "noun",
-    "german": "Kaffee",
-    "gender": "der",
-    "english": "coffee",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 38,
-    "type": "noun",
-    "german": "Tee",
-    "gender": "der",
-    "english": "tea",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 39,
-    "type": "noun",
-    "german": "Bier",
-    "gender": "das",
-    "english": "beer",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 40,
-    "type": "noun",
-    "german": "Wein",
-    "gender": "der",
-    "english": "wine",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 41,
-    "type": "noun",
-    "german": "Fleisch",
-    "gender": "das",
-    "english": "meat",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 42,
-    "type": "noun",
-    "german": "Fisch",
-    "gender": "der",
-    "english": "fish",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 43,
-    "type": "noun",
-    "german": "Suppe",
-    "gender": "die",
-    "english": "soup",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 44,
-    "type": "noun",
-    "german": "Salat",
-    "gender": "der",
-    "english": "salad",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 45,
-    "type": "noun",
-    "german": "Ei",
-    "gender": "das",
-    "english": "egg",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 46,
-    "type": "noun",
-    "german": "Butter",
-    "gender": "die",
-    "english": "butter",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 47,
-    "type": "noun",
-    "german": "Zucker",
-    "gender": "der",
-    "english": "sugar",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 48,
-    "type": "noun",
-    "german": "Salz",
-    "gender": "das",
-    "english": "salt",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 49,
-    "type": "noun",
-    "german": "Pfeffer",
-    "gender": "der",
-    "english": "pepper",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 50,
-    "type": "noun",
-    "german": "Reis",
-    "gender": "der",
-    "english": "rice",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 51,
-    "type": "noun",
-    "german": "Kartoffel",
-    "gender": "die",
-    "english": "potato",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 52,
-    "type": "noun",
-    "german": "Gemüse",
-    "gender": "das",
-    "english": "vegetables",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 53,
-    "type": "noun",
-    "german": "Obst",
-    "gender": "das",
-    "english": "fruit",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 54,
-    "type": "noun",
-    "german": "Rechnung",
-    "gender": "die",
-    "english": "bill",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 55,
-    "type": "noun",
-    "german": "Speisekarte",
-    "gender": "die",
-    "english": "menu",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 56,
-    "type": "noun",
-    "german": "Kellner",
-    "gender": "der",
-    "english": "waiter",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 57,
-    "type": "phrase",
-    "german": "Die Rechnung, bitte",
-    "english": "the check please",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 58,
-    "type": "phrase",
-    "german": "Ich möchte ein Glas Wasser",
-    "english": "i would like a glass of water",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 59,
-    "type": "phrase",
-    "german": "Guten Appetit",
-    "english": "enjoy your meal",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 60,
-    "type": "phrase",
-    "german": "Prost",
-    "english": "cheers",
-    "module": "2. Food, Dining & Market"
-  },
-  {
-    "id": 61,
-    "type": "noun",
-    "german": "Bahnhof",
-    "gender": "der",
-    "english": "train station",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 62,
-    "type": "noun",
-    "german": "Flughafen",
-    "gender": "der",
-    "english": "airport",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 63,
-    "type": "noun",
-    "german": "Zug",
-    "gender": "der",
-    "english": "train",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 64,
-    "type": "noun",
-    "german": "Bus",
-    "gender": "der",
-    "english": "bus",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 65,
-    "type": "noun",
-    "german": "U-Bahn",
-    "gender": "die",
-    "english": "subway",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 66,
-    "type": "noun",
-    "german": "Straßenbahn",
-    "gender": "die",
-    "english": "tram",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 67,
-    "type": "noun",
-    "german": "Fahrkarte",
-    "gender": "die",
-    "english": "ticket",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 68,
-    "type": "noun",
-    "german": "Gleis",
-    "gender": "das",
-    "english": "platform",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 69,
-    "type": "noun",
-    "german": "Haltestelle",
-    "gender": "die",
-    "english": "stop",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 70,
+    "id": 2,
     "type": "noun",
     "german": "Straße",
     "gender": "die",
     "english": "street",
-    "module": "3. Navigation, Transit & City"
+    "level": 1,
+    "tip": "Cognate Shift: English 't' -> German 'ß/ss' (street -> Straße, foot -> Fuß)."
   },
   {
-    "id": 71,
+    "id": 3,
     "type": "noun",
-    "german": "Platz",
+    "german": "Fuß",
     "gender": "der",
-    "english": "square",
-    "module": "3. Navigation, Transit & City"
+    "english": "foot",
+    "level": 1,
+    "tip": "Cognate Shift: English 't' -> German 'ß' (foot -> Fuß). Body parts often default to 'der'."
   },
   {
-    "id": 72,
+    "id": 4,
     "type": "noun",
-    "german": "Brücke",
+    "german": "Katze",
     "gender": "die",
-    "english": "bridge",
-    "module": "3. Navigation, Transit & City"
+    "english": "cat",
+    "level": 1,
+    "tip": "Cognate Shift: English 't' -> German 'tz' (cat -> Katze). Nouns ending in '-e' are 90% feminine ('die')."
   },
   {
-    "id": 73,
+    "id": 5,
     "type": "noun",
-    "german": "Stadt",
+    "german": "Zunge",
     "gender": "die",
-    "english": "city",
-    "module": "3. Navigation, Transit & City"
+    "english": "tongue",
+    "level": 1,
+    "tip": "Cognate Shift: English initial 't' -> German 'z' (tongue -> Zunge, to -> zu). Ends in '-e' -> 'die'."
   },
   {
-    "id": 74,
-    "type": "noun",
-    "german": "Hotel",
-    "gender": "das",
-    "english": "hotel",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 75,
-    "type": "noun",
-    "german": "Zimmer",
-    "gender": "das",
-    "english": "room",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 76,
-    "type": "noun",
-    "german": "Schlüssel",
-    "gender": "der",
-    "english": "key",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 77,
-    "type": "noun",
-    "german": "Ausgang",
-    "gender": "der",
-    "english": "exit",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 78,
-    "type": "noun",
-    "german": "Eingang",
-    "gender": "der",
-    "english": "entrance",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 79,
-    "type": "noun",
-    "german": "Weg",
-    "gender": "der",
-    "english": "way",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 80,
-    "type": "noun",
-    "german": "Karte",
-    "gender": "die",
-    "english": "map",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 81,
-    "type": "phrase",
-    "german": "Wo ist die U-Bahn?",
-    "english": "where is the subway",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 82,
-    "type": "phrase",
-    "german": "Geradeaus",
-    "english": "straight ahead",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 83,
-    "type": "phrase",
-    "german": "Nach links",
-    "english": "to the left",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 84,
-    "type": "phrase",
-    "german": "Nach rechts",
-    "english": "to the right",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 85,
-    "type": "phrase",
-    "german": "Wie komme ich zum Bahnhof?",
-    "english": "how do i get to the station",
-    "module": "3. Navigation, Transit & City"
-  },
-  {
-    "id": 86,
-    "type": "noun",
-    "german": "Haus",
-    "gender": "das",
-    "english": "house",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 87,
-    "type": "noun",
-    "german": "Wohnung",
-    "gender": "die",
-    "english": "apartment",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 88,
-    "type": "noun",
-    "german": "Tür",
-    "gender": "die",
-    "english": "door",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 89,
-    "type": "noun",
-    "german": "Fenster",
-    "gender": "das",
-    "english": "window",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 90,
-    "type": "noun",
-    "german": "Tisch",
-    "gender": "der",
-    "english": "table",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 91,
-    "type": "noun",
-    "german": "Stuhl",
-    "gender": "der",
-    "english": "chair",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 92,
-    "type": "noun",
-    "german": "Bett",
-    "gender": "das",
-    "english": "bed",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 93,
-    "type": "noun",
-    "german": "Küche",
-    "gender": "die",
-    "english": "kitchen",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 94,
-    "type": "noun",
-    "german": "Bad",
-    "gender": "das",
-    "english": "bathroom",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 95,
-    "type": "noun",
-    "german": "Schrank",
-    "gender": "der",
-    "english": "cabinet",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 96,
-    "type": "noun",
-    "german": "Lampe",
-    "gender": "die",
-    "english": "lamp",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 97,
-    "type": "noun",
-    "german": "Uhr",
-    "gender": "die",
-    "english": "clock",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 98,
-    "type": "noun",
-    "german": "Telefon",
-    "gender": "das",
-    "english": "telephone",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 99,
-    "type": "noun",
-    "german": "Buch",
-    "gender": "das",
-    "english": "book",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 100,
-    "type": "noun",
-    "german": "Zeitung",
-    "gender": "die",
-    "english": "newspaper",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 101,
-    "type": "noun",
-    "german": "Geld",
-    "gender": "das",
-    "english": "money",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 102,
-    "type": "noun",
-    "german": "Tasche",
-    "gender": "die",
-    "english": "bag",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 103,
-    "type": "noun",
-    "german": "Koffer",
-    "gender": "der",
-    "english": "suitcase",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 104,
-    "type": "noun",
-    "german": "Kleidung",
-    "gender": "die",
-    "english": "clothing",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 105,
-    "type": "noun",
-    "german": "Schuh",
-    "gender": "der",
-    "english": "shoe",
-    "module": "4. Living, Home & Everyday Life"
-  },
-  {
-    "id": 106,
-    "type": "noun",
-    "german": "Arbeit",
-    "gender": "die",
-    "english": "work",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 107,
-    "type": "noun",
-    "german": "Büro",
-    "gender": "das",
-    "english": "office",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 108,
-    "type": "noun",
-    "german": "Kollege",
-    "gender": "der",
-    "english": "colleague",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 109,
-    "type": "noun",
-    "german": "Chef",
-    "gender": "der",
-    "english": "boss",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 110,
-    "type": "noun",
-    "german": "Computer",
-    "gender": "der",
-    "english": "computer",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 111,
-    "type": "noun",
-    "german": "Nachricht",
-    "gender": "die",
-    "english": "message",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 112,
-    "type": "noun",
-    "german": "Brief",
-    "gender": "der",
-    "english": "letter",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 113,
-    "type": "noun",
-    "german": "Projekt",
-    "gender": "das",
-    "english": "project",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 114,
-    "type": "noun",
-    "german": "Termin",
-    "gender": "der",
-    "english": "appointment",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 115,
-    "type": "noun",
-    "german": "Frage",
-    "gender": "die",
-    "english": "question",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 116,
-    "type": "noun",
-    "german": "Antwort",
-    "gender": "die",
-    "english": "answer",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 117,
-    "type": "noun",
-    "german": "Problem",
-    "gender": "das",
-    "english": "problem",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 118,
-    "type": "noun",
-    "german": "Lösung",
-    "gender": "die",
-    "english": "solution",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 119,
-    "type": "noun",
-    "german": "Vertrag",
-    "gender": "der",
-    "english": "contract",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 120,
-    "type": "phrase",
-    "german": "Ich habe eine Frage",
-    "english": "i have a question",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 121,
-    "type": "phrase",
-    "german": "Wann ist der Termin?",
-    "english": "when is the appointment",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 122,
-    "type": "phrase",
-    "german": "Können Sie mir helfen?",
-    "english": "can you help me",
-    "module": "5. Work, Office & Communication"
-  },
-  {
-    "id": 123,
+    "id": 6,
     "type": "noun",
     "german": "Zeit",
     "gender": "die",
     "english": "time",
-    "module": "6. Time, Nature & Surroundings"
+    "level": 1,
+    "tip": "Cognate Shift: English initial 't' -> German 'z' (time -> Zeit, tide -> Gezeiten)."
   },
   {
-    "id": 124,
+    "id": 7,
+    "type": "noun",
+    "german": "Zahn",
+    "gender": "der",
+    "english": "tooth",
+    "level": 1,
+    "tip": "Cognate Shift: English initial 't' -> German 'z' (tooth -> Zahn)."
+  },
+  {
+    "id": 8,
+    "type": "noun",
+    "german": "Brot",
+    "gender": "das",
+    "english": "bread",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (bread -> Brot, cold -> kalt, old -> alt)."
+  },
+  {
+    "id": 9,
+    "type": "noun",
+    "german": "Bett",
+    "gender": "das",
+    "english": "bed",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 'tt' (bed -> Bett)."
+  },
+  {
+    "id": 10,
     "type": "noun",
     "german": "Tag",
     "gender": "der",
     "english": "day",
-    "module": "6. Time, Nature & Surroundings"
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (day -> Tag, dream -> Traum). Time units (der Tag, der Monat) take 'der'."
   },
   {
-    "id": 125,
+    "id": 11,
     "type": "noun",
-    "german": "Nacht",
-    "gender": "die",
-    "english": "night",
-    "module": "6. Time, Nature & Surroundings"
+    "german": "Traum",
+    "gender": "der",
+    "english": "dream",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (dream -> Traum, drink -> trinken)."
   },
   {
-    "id": 126,
+    "id": 12,
+    "type": "noun",
+    "german": "Tür",
+    "gender": "die",
+    "english": "door",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (door -> Tür)."
+  },
+  {
+    "id": 13,
+    "type": "noun",
+    "german": "Tochter",
+    "gender": "die",
+    "english": "daughter",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (daughter -> Tochter). Female biological identity -> 'die'."
+  },
+  {
+    "id": 14,
+    "type": "noun",
+    "german": "Garten",
+    "gender": "der",
+    "english": "garden",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (garden -> Garten)."
+  },
+  {
+    "id": 15,
+    "type": "noun",
+    "german": "Apfel",
+    "gender": "der",
+    "english": "apple",
+    "level": 1,
+    "tip": "Cognate Shift: English 'p' -> German 'pf' (apple -> Apfel, pepper -> Pfeffer)."
+  },
+  {
+    "id": 16,
+    "type": "noun",
+    "german": "Pfeffer",
+    "gender": "der",
+    "english": "pepper",
+    "level": 1,
+    "tip": "Cognate Shift: English 'p' -> German 'pf' (pepper -> Pfeffer). Spices generally take 'der'."
+  },
+  {
+    "id": 17,
+    "type": "noun",
+    "german": "Pferd",
+    "gender": "das",
+    "english": "horse",
+    "level": 1,
+    "tip": "Cognate Shift: English 'p' -> German 'pf' (palfrey -> Pferd)."
+  },
+  {
+    "id": 18,
+    "type": "noun",
+    "german": "Pflanze",
+    "gender": "die",
+    "english": "plant",
+    "level": 1,
+    "tip": "Cognate Shift: English 'p' -> German 'pf' (plant -> Pflanze). Ends in '-e' -> 'die'."
+  },
+  {
+    "id": 19,
+    "type": "noun",
+    "german": "Pfeife",
+    "gender": "die",
+    "english": "pipe",
+    "level": 1,
+    "tip": "Cognate Shift: English 'p' -> German 'pf' (pipe -> Pfeife)."
+  },
+  {
+    "id": 20,
+    "type": "noun",
+    "german": "Schiff",
+    "gender": "das",
+    "english": "ship",
+    "level": 1,
+    "tip": "Cognate Shift: English 'p' -> German 'ff' (ship -> Schiff, open -> offen)."
+  },
+  {
+    "id": 21,
+    "type": "noun",
+    "german": "Buch",
+    "gender": "das",
+    "english": "book",
+    "level": 1,
+    "tip": "Cognate Shift: English hard 'k' -> German 'ch' (book -> Buch, cook -> Koch, break -> brechen)."
+  },
+  {
+    "id": 22,
+    "type": "noun",
+    "german": "Küche",
+    "gender": "die",
+    "english": "kitchen",
+    "level": 1,
+    "tip": "Cognate Shift: English 'k' -> German 'ch' (kitchen -> Küche). Ends in '-e' -> 'die'."
+  },
+  {
+    "id": 23,
+    "type": "noun",
+    "german": "Milch",
+    "gender": "die",
+    "english": "milk",
+    "level": 1,
+    "tip": "Cognate Shift: English 'k' -> German 'ch' (milk -> Milch). Feminine milk/dairy category."
+  },
+  {
+    "id": 24,
     "type": "noun",
     "german": "Woche",
     "gender": "die",
     "english": "week",
-    "module": "6. Time, Nature & Surroundings"
+    "level": 1,
+    "tip": "Cognate Shift: English 'k' -> German 'ch' (week -> Woche). Ends in '-e' -> 'die'."
   },
   {
-    "id": 127,
+    "id": 25,
     "type": "noun",
-    "german": "Monat",
+    "german": "Bruder",
     "gender": "der",
-    "english": "month",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "brother",
+    "level": 1,
+    "tip": "Cognate Shift: English 'th' -> German 'd' (brother -> Bruder, leather -> Leder). Male family -> 'der'."
   },
   {
-    "id": 128,
+    "id": 26,
     "type": "noun",
-    "german": "Jahr",
+    "german": "Bad",
     "gender": "das",
-    "english": "year",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "bath",
+    "level": 1,
+    "tip": "Cognate Shift: English 'th' -> German 'd' (bath -> Bad)."
   },
   {
-    "id": 129,
+    "id": 27,
     "type": "noun",
-    "german": "Morgen",
-    "gender": "der",
-    "english": "morning",
-    "module": "6. Time, Nature & Surroundings"
-  },
-  {
-    "id": 130,
-    "type": "noun",
-    "german": "Abend",
-    "gender": "der",
-    "english": "evening",
-    "module": "6. Time, Nature & Surroundings"
-  },
-  {
-    "id": 131,
-    "type": "noun",
-    "german": "Sonne",
+    "german": "Erde",
     "gender": "die",
-    "english": "sun",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "earth",
+    "level": 1,
+    "tip": "Cognate Shift: English 'th' -> German 'd' (earth -> Erde). Ends in '-e' -> 'die'."
   },
   {
-    "id": 132,
+    "id": 28,
     "type": "noun",
-    "german": "Mond",
-    "gender": "der",
-    "english": "moon",
-    "module": "6. Time, Nature & Surroundings"
+    "german": "Feder",
+    "gender": "die",
+    "english": "feather",
+    "level": 1,
+    "tip": "Cognate Shift: English 'th' -> German 'd' (feather -> Feder)."
   },
   {
-    "id": 133,
+    "id": 29,
     "type": "noun",
-    "german": "Wetter",
+    "german": "Haus",
     "gender": "das",
-    "english": "weather",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "house",
+    "level": 1,
+    "tip": "Direct Cognate: English 'ou' shifts to German 'au' (house -> Haus, mouse -> Maus)."
   },
   {
-    "id": 134,
+    "id": 30,
     "type": "noun",
-    "german": "Regen",
+    "german": "Maus",
+    "gender": "die",
+    "english": "mouse",
+    "level": 1,
+    "tip": "Direct Cognate: English 'ou' shifts to German 'au' (mouse -> Maus)."
+  },
+  {
+    "id": 31,
+    "type": "noun",
+    "german": "Freund",
     "gender": "der",
-    "english": "rain",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "friend",
+    "level": 1,
+    "tip": "Direct Cognate: Exact shared Germanic root (friend -> Freund)."
   },
   {
-    "id": 135,
-    "type": "noun",
-    "german": "Schnee",
-    "gender": "der",
-    "english": "snow",
-    "module": "6. Time, Nature & Surroundings"
+    "id": 32,
+    "type": "phrase",
+    "german": "Hallo",
+    "gender": null,
+    "english": "hello",
+    "level": 1,
+    "tip": "Direct Greeting: Exact cognate."
   },
   {
-    "id": 136,
-    "type": "noun",
-    "german": "Wind",
-    "gender": "der",
-    "english": "wind",
-    "module": "6. Time, Nature & Surroundings"
+    "id": 33,
+    "type": "phrase",
+    "german": "Danke",
+    "gender": null,
+    "english": "thank you",
+    "level": 1,
+    "tip": "Cognate Shift: English 'th' -> German 'd' (thank -> danken/danke)."
   },
   {
-    "id": 137,
-    "type": "noun",
-    "german": "Baum",
-    "gender": "der",
-    "english": "tree",
-    "module": "6. Time, Nature & Surroundings"
+    "id": 34,
+    "type": "phrase",
+    "german": "Bitte",
+    "gender": null,
+    "english": "please",
+    "level": 1,
+    "tip": "Cognate Anchor: Related to English 'bid' (to request/invite)."
   },
   {
-    "id": 138,
-    "type": "noun",
-    "german": "Wald",
-    "gender": "der",
-    "english": "forest",
-    "module": "6. Time, Nature & Surroundings"
+    "id": 35,
+    "type": "phrase",
+    "german": "Ja",
+    "gender": null,
+    "english": "yes",
+    "level": 1,
+    "tip": "Cognate Anchor: Cognate with archaic English 'yea'."
   },
   {
-    "id": 139,
-    "type": "noun",
-    "german": "Berg",
-    "gender": "der",
-    "english": "mountain",
-    "module": "6. Time, Nature & Surroundings"
+    "id": 36,
+    "type": "phrase",
+    "german": "Nein",
+    "gender": null,
+    "english": "no",
+    "level": 1,
+    "tip": "Cognate Anchor: Cognate with English 'nay' / 'none'."
   },
   {
-    "id": 140,
-    "type": "noun",
-    "german": "See",
-    "gender": "der",
-    "english": "lake",
-    "module": "6. Time, Nature & Surroundings"
+    "id": 37,
+    "type": "phrase",
+    "german": "Gut",
+    "gender": null,
+    "english": "good",
+    "level": 1,
+    "tip": "Cognate Shift: English 'd' -> German 't' (good -> gut)."
   },
   {
-    "id": 141,
+    "id": 38,
     "type": "noun",
-    "german": "Meer",
+    "german": "Zeitung",
+    "gender": "die",
+    "english": "newspaper",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 39,
+    "type": "noun",
+    "german": "Wohnung",
+    "gender": "die",
+    "english": "apartment",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 40,
+    "type": "noun",
+    "german": "Rechnung",
+    "gender": "die",
+    "english": "bill",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die'). (Rechnen = to calculate)."
+  },
+  {
+    "id": 41,
+    "type": "noun",
+    "german": "Hoffnung",
+    "gender": "die",
+    "english": "hope",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 42,
+    "type": "noun",
+    "german": "Lösung",
+    "gender": "die",
+    "english": "solution",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 43,
+    "type": "noun",
+    "german": "Meinung",
+    "gender": "die",
+    "english": "opinion",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 44,
+    "type": "noun",
+    "german": "Erfahrung",
+    "gender": "die",
+    "english": "experience",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 45,
+    "type": "noun",
+    "german": "Bedeutung",
+    "gender": "die",
+    "english": "meaning",
+    "level": 2,
+    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+  },
+  {
+    "id": 46,
+    "type": "noun",
+    "german": "Freiheit",
+    "gender": "die",
+    "english": "freedom",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-heit' are 100% feminine ('die') (matches English '-hood')."
+  },
+  {
+    "id": 47,
+    "type": "noun",
+    "german": "Wahrheit",
+    "gender": "die",
+    "english": "truth",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-heit' are 100% feminine ('die')."
+  },
+  {
+    "id": 48,
+    "type": "noun",
+    "german": "Krankheit",
+    "gender": "die",
+    "english": "illness",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-heit' are 100% feminine ('die')."
+  },
+  {
+    "id": 49,
+    "type": "noun",
+    "german": "Möglichkeit",
+    "gender": "die",
+    "english": "possibility",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-keit' are 100% feminine ('die') (matches English '-ness/-ity')."
+  },
+  {
+    "id": 50,
+    "type": "noun",
+    "german": "Geschwindigkeit",
+    "gender": "die",
+    "english": "speed",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-keit' are 100% feminine ('die')."
+  },
+  {
+    "id": 51,
+    "type": "noun",
+    "german": "Freundschaft",
+    "gender": "die",
+    "english": "friendship",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-schaft' are 100% feminine ('die') (matches English '-ship')."
+  },
+  {
+    "id": 52,
+    "type": "noun",
+    "german": "Mannschaft",
+    "gender": "die",
+    "english": "team",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-schaft' are 100% feminine ('die')."
+  },
+  {
+    "id": 53,
+    "type": "noun",
+    "german": "Station",
+    "gender": "die",
+    "english": "station",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-tion' are 100% feminine ('die')."
+  },
+  {
+    "id": 54,
+    "type": "noun",
+    "german": "Information",
+    "gender": "die",
+    "english": "information",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-tion' are 100% feminine ('die')."
+  },
+  {
+    "id": 55,
+    "type": "noun",
+    "german": "Situation",
+    "gender": "die",
+    "english": "situation",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-tion' are 100% feminine ('die')."
+  },
+  {
+    "id": 56,
+    "type": "noun",
+    "german": "Universität",
+    "gender": "die",
+    "english": "university",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-tät' are 100% feminine ('die') (matches English '-ity')."
+  },
+  {
+    "id": 57,
+    "type": "noun",
+    "german": "Qualität",
+    "gender": "die",
+    "english": "quality",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-tät' are 100% feminine ('die')."
+  },
+  {
+    "id": 58,
+    "type": "noun",
+    "german": "Energie",
+    "gender": "die",
+    "english": "energy",
+    "level": 2,
+    "tip": "Suffix Rule: Loan words ending in stressed '-ie' are 100% feminine ('die')."
+  },
+  {
+    "id": 59,
+    "type": "noun",
+    "german": "Biologie",
+    "gender": "die",
+    "english": "biology",
+    "level": 2,
+    "tip": "Suffix Rule: Scientific fields ending in '-ie' are 100% feminine ('die')."
+  },
+  {
+    "id": 60,
+    "type": "noun",
+    "german": "Brötchen",
     "gender": "das",
-    "english": "sea",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "bread roll",
+    "level": 2,
+    "tip": "Diminutive Rule: 100% of nouns ending in '-chen' are neuter ('das'), regardless of base noun."
   },
   {
-    "id": 142,
+    "id": 61,
     "type": "noun",
-    "german": "Fluss",
+    "german": "Mädchen",
+    "gender": "das",
+    "english": "girl",
+    "level": 2,
+    "tip": "Diminutive Rule: Suffix '-chen' grammatically forces neuter ('das'), overriding biological gender."
+  },
+  {
+    "id": 62,
+    "type": "noun",
+    "german": "Häuschen",
+    "gender": "das",
+    "english": "small house",
+    "level": 2,
+    "tip": "Diminutive Rule: Suffix '-chen' always takes 'das'."
+  },
+  {
+    "id": 63,
+    "type": "noun",
+    "german": "Fräulein",
+    "gender": "das",
+    "english": "young lady",
+    "level": 2,
+    "tip": "Diminutive Rule: Suffix '-lein' always takes 'das'."
+  },
+  {
+    "id": 64,
+    "type": "noun",
+    "german": "Dokument",
+    "gender": "das",
+    "english": "document",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-ment' are 100% neuter ('das')."
+  },
+  {
+    "id": 65,
+    "type": "noun",
+    "german": "Instrument",
+    "gender": "das",
+    "english": "instrument",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-ment' are 100% neuter ('das')."
+  },
+  {
+    "id": 66,
+    "type": "noun",
+    "german": "Experiment",
+    "gender": "das",
+    "english": "experiment",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-ment' are 100% neuter ('das')."
+  },
+  {
+    "id": 67,
+    "type": "noun",
+    "german": "Zentrum",
+    "gender": "das",
+    "english": "center",
+    "level": 2,
+    "tip": "Suffix Rule: Latin origin nouns ending in '-um' are 100% neuter ('das')."
+  },
+  {
+    "id": 68,
+    "type": "noun",
+    "german": "Museum",
+    "gender": "das",
+    "english": "museum",
+    "level": 2,
+    "tip": "Suffix Rule: Latin origin nouns ending in '-um' are 100% neuter ('das')."
+  },
+  {
+    "id": 69,
+    "type": "noun",
+    "german": "Lehrer",
     "gender": "der",
-    "english": "river",
-    "module": "6. Time, Nature & Surroundings"
+    "english": "teacher",
+    "level": 2,
+    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
+  },
+  {
+    "id": 70,
+    "type": "noun",
+    "german": "Fahrer",
+    "gender": "der",
+    "english": "driver",
+    "level": 2,
+    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
+  },
+  {
+    "id": 71,
+    "type": "noun",
+    "german": "Kellner",
+    "gender": "der",
+    "english": "waiter",
+    "level": 2,
+    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
+  },
+  {
+    "id": 72,
+    "type": "noun",
+    "german": "Bäcker",
+    "gender": "der",
+    "english": "baker",
+    "level": 2,
+    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
+  },
+  {
+    "id": 73,
+    "type": "noun",
+    "german": "Computer",
+    "gender": "der",
+    "english": "computer",
+    "level": 2,
+    "tip": "Technical Agent Rule: Mechanical devices/tools ending in '-er' take masculine ('der')."
+  },
+  {
+    "id": 74,
+    "type": "noun",
+    "german": "Drucker",
+    "gender": "der",
+    "english": "printer",
+    "level": 2,
+    "tip": "Technical Agent Rule: Mechanical devices/tools ending in '-er' take masculine ('der')."
+  },
+  {
+    "id": 75,
+    "type": "noun",
+    "german": "Flüchtling",
+    "gender": "der",
+    "english": "refugee",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-ling' take masculine ('der')."
+  },
+  {
+    "id": 76,
+    "type": "noun",
+    "german": "Frühling",
+    "gender": "der",
+    "english": "spring",
+    "level": 2,
+    "tip": "Suffix Rule: Seasons and nouns ending in '-ling' take masculine ('der')."
+  },
+  {
+    "id": 77,
+    "type": "noun",
+    "german": "Motor",
+    "gender": "der",
+    "english": "engine",
+    "level": 2,
+    "tip": "Suffix Rule: Latinate nouns ending in '-or' take masculine ('der')."
+  },
+  {
+    "id": 78,
+    "type": "noun",
+    "german": "Optimismus",
+    "gender": "der",
+    "english": "optimism",
+    "level": 2,
+    "tip": "Suffix Rule: Nouns ending in '-ismus' take masculine ('der') (matches English '-ism')."
+  },
+  {
+    "id": 79,
+    "type": "phrase",
+    "german": "Guten Morgen",
+    "gender": null,
+    "english": "good morning",
+    "level": 2,
+    "tip": "Accusative Anchor: 'Guten' takes masculine accusative '-en' as a direct object greeting."
+  },
+  {
+    "id": 80,
+    "type": "phrase",
+    "german": "Guten Tag",
+    "gender": null,
+    "english": "good day",
+    "level": 2,
+    "tip": "Accusative Anchor: 'Guten' takes masculine accusative '-en'."
+  },
+  {
+    "id": 81,
+    "type": "phrase",
+    "german": "Guten Abend",
+    "gender": null,
+    "english": "good evening",
+    "level": 2,
+    "tip": "Accusative Anchor: 'Guten' takes masculine accusative '-en'."
+  },
+  {
+    "id": 82,
+    "type": "phrase",
+    "german": "Auf Wiedersehen",
+    "gender": null,
+    "english": "goodbye",
+    "level": 2,
+    "tip": "Root Breakdown: 'Auf' (upon) + 'wieder' (again) + 'sehen' (seeing) = 'Until we meet again'."
+  },
+  {
+    "id": 83,
+    "type": "phrase",
+    "german": "Tschüss",
+    "gender": null,
+    "english": "bye",
+    "level": 2,
+    "tip": "Casual Greeting: Standard informal German farewell."
+  },
+  {
+    "id": 84,
+    "type": "phrase",
+    "german": "Es tut mir leid",
+    "gender": null,
+    "english": "i am sorry",
+    "level": 3,
+    "tip": "Idiomatic Construction: Literally 'It does sorrow to me' (tut = does, mir = dative 'to me', leid = sorrow)."
+  },
+  {
+    "id": 85,
+    "type": "phrase",
+    "german": "Wie geht es Ihnen?",
+    "gender": null,
+    "english": "how are you",
+    "level": 3,
+    "tip": "Dative Construction: Literally 'How goes it to you?' (Ihnen = formal dative 'you')."
+  },
+  {
+    "id": 86,
+    "type": "phrase",
+    "german": "Wie geht's?",
+    "gender": null,
+    "english": "how are you",
+    "level": 3,
+    "tip": "Informal Contraction: 'Wie geht es' contracts to 'Wie geht's'."
+  },
+  {
+    "id": 87,
+    "type": "phrase",
+    "german": "Mir geht es gut",
+    "gender": null,
+    "english": "i am doing well",
+    "level": 3,
+    "tip": "Dative Construction: Literally 'To me it goes good'."
+  },
+  {
+    "id": 88,
+    "type": "phrase",
+    "german": "Ich verstehe nicht",
+    "gender": null,
+    "english": "i do not understand",
+    "level": 3,
+    "tip": "Negation Logic: 'nicht' follows the conjugated verb to negate the full clause."
+  },
+  {
+    "id": 89,
+    "type": "phrase",
+    "german": "Ich weiß nicht",
+    "gender": null,
+    "english": "i do not know",
+    "level": 3,
+    "tip": "Irregular Verb: 'wissen' (to know a fact). First person singular is 'weiß'."
+  },
+  {
+    "id": 90,
+    "type": "phrase",
+    "german": "Die Rechnung, bitte",
+    "gender": null,
+    "english": "the check please",
+    "level": 3,
+    "tip": "Communicative Chunk: 'Rechnung' (calculation/bill) + '-ung' (die) + 'bitte' (please)."
+  },
+  {
+    "id": 91,
+    "type": "phrase",
+    "german": "Wo ist der Bahnhof?",
+    "gender": null,
+    "english": "where is the train station",
+    "level": 3,
+    "tip": "Nominative Construction: 'Bahnhof' remains 'der' as the subject after 'sein'."
+  },
+  {
+    "id": 92,
+    "type": "phrase",
+    "german": "Ich möchte bezahlen",
+    "gender": null,
+    "english": "i would like to pay",
+    "level": 3,
+    "tip": "Modal Construction: 'möchte' (would like) sends infinitive 'bezahlen' to end of sentence."
+  },
+  {
+    "id": 93,
+    "type": "phrase",
+    "german": "Können Sie mir helfen?",
+    "gender": null,
+    "english": "can you help me",
+    "level": 3,
+    "tip": "Dative Object: 'helfen' always governs a dative pronoun ('mir' instead of 'mich')."
+  },
+  {
+    "id": 94,
+    "type": "phrase",
+    "german": "Sprechen Sie Englisch?",
+    "gender": null,
+    "english": "do you speak english",
+    "level": 3,
+    "tip": "Vowel Change: Strong verb 'sprechen' (e -> i in singular, stays 'e' in formal Sie)."
+  },
+  {
+    "id": 95,
+    "type": "phrase",
+    "german": "Ich habe keine Zeit",
+    "gender": null,
+    "english": "i have no time",
+    "level": 3,
+    "tip": "Negative Article: 'keine' negates feminine noun 'die Zeit' in the accusative."
   }
 ]
