@@ -1,857 +1,650 @@
 [
   {
     "id": 1,
+    "level": 1,
     "type": "noun",
     "german": "Wasser",
     "gender": "das",
     "english": "water",
-    "level": 1,
-    "tip": "Cognate Shift: English 't' -> German 'ss' (water -> Wasser, street -> Straße). Neutral liquid base."
+    "category": "Shift: t -> ss",
+    "shift_rule": "t -> ss",
+    "source_english": "water",
+    "tip": "High German Consonant Shift: English 't' shifts to German 'ss/s' (water -> Wasser, street -> Straße). Standard liquids default to neuter ('das')."
   },
   {
     "id": 2,
+    "level": 1,
     "type": "noun",
     "german": "Straße",
     "gender": "die",
     "english": "street",
-    "level": 1,
-    "tip": "Cognate Shift: English 't' -> German 'ß/ss' (street -> Straße, foot -> Fuß)."
+    "category": "Shift: t -> ß",
+    "shift_rule": "t -> ß",
+    "source_english": "street",
+    "tip": "High German Consonant Shift: English 't' shifts to German 'ß/ss' (street -> Straße, foot -> Fuß). Nouns ending in '-e' are ~90% feminine ('die')."
   },
   {
     "id": 3,
+    "level": 1,
     "type": "noun",
     "german": "Fuß",
     "gender": "der",
     "english": "foot",
-    "level": 1,
-    "tip": "Cognate Shift: English 't' -> German 'ß' (foot -> Fuß). Body parts often default to 'der'."
+    "category": "Shift: t -> ß",
+    "shift_rule": "t -> ß",
+    "source_english": "foot",
+    "tip": "High German Consonant Shift: English 't' shifts to German 'ß' (foot -> Fuß). Major extremities and movable body components predominantly take masculine ('der')."
   },
   {
     "id": 4,
+    "level": 1,
     "type": "noun",
     "german": "Katze",
     "gender": "die",
     "english": "cat",
-    "level": 1,
-    "tip": "Cognate Shift: English 't' -> German 'tz' (cat -> Katze). Nouns ending in '-e' are 90% feminine ('die')."
+    "category": "Shift: t -> tz",
+    "shift_rule": "t -> tz",
+    "source_english": "cat",
+    "tip": "High German Consonant Shift: English medial/final 't' shifts to German 'tz' (cat -> Katze). Nouns ending in '-e' take feminine ('die')."
   },
   {
     "id": 5,
+    "level": 1,
     "type": "noun",
     "german": "Zunge",
     "gender": "die",
     "english": "tongue",
-    "level": 1,
-    "tip": "Cognate Shift: English initial 't' -> German 'z' (tongue -> Zunge, to -> zu). Ends in '-e' -> 'die'."
+    "category": "Shift: t -> z",
+    "shift_rule": "t -> z",
+    "source_english": "tongue",
+    "tip": "High German Consonant Shift: English initial 't' shifts to German affricate 'z' (tongue -> Zunge, to -> zu). Ends in '-e' -> 'die'."
   },
   {
     "id": 6,
+    "level": 1,
     "type": "noun",
     "german": "Zeit",
     "gender": "die",
     "english": "time",
-    "level": 1,
-    "tip": "Cognate Shift: English initial 't' -> German 'z' (time -> Zeit, tide -> Gezeiten)."
+    "category": "Shift: t -> z",
+    "shift_rule": "t -> z",
+    "source_english": "tide",
+    "tip": "High German Consonant Shift: English initial 't' shifts to German 'z' (time/tide -> Zeit). Abstract divisions of time take feminine ('die')."
   },
   {
     "id": 7,
+    "level": 1,
     "type": "noun",
     "german": "Zahn",
     "gender": "der",
     "english": "tooth",
-    "level": 1,
-    "tip": "Cognate Shift: English initial 't' -> German 'z' (tooth -> Zahn)."
+    "category": "Shift: t -> z",
+    "shift_rule": "t -> z",
+    "source_english": "tooth",
+    "tip": "High German Consonant Shift: English initial 't' shifts to German 'z' (tooth -> Zahn). Takes masculine ('der')."
   },
   {
     "id": 8,
+    "level": 1,
     "type": "noun",
     "german": "Brot",
     "gender": "das",
     "english": "bread",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (bread -> Brot, cold -> kalt, old -> alt)."
+    "category": "Shift: d -> t",
+    "shift_rule": "d -> t",
+    "source_english": "bread",
+    "tip": "High German Consonant Shift: English 'd' shifts to German 't' (bread -> Brot, cold -> kalt, old -> alt)."
   },
   {
     "id": 9,
+    "level": 1,
     "type": "noun",
     "german": "Bett",
     "gender": "das",
     "english": "bed",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 'tt' (bed -> Bett)."
+    "category": "Shift: d -> tt",
+    "shift_rule": "d -> tt",
+    "source_english": "bed",
+    "tip": "High German Consonant Shift: English 'd' shifts to German 'tt' (bed -> Bett). Household resting anchors take neuter ('das')."
   },
   {
     "id": 10,
+    "level": 1,
     "type": "noun",
     "german": "Tag",
     "gender": "der",
     "english": "day",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (day -> Tag, dream -> Traum). Time units (der Tag, der Monat) take 'der'."
+    "category": "Shift: d -> t",
+    "shift_rule": "d -> t",
+    "source_english": "day",
+    "tip": "High German Consonant Shift: English 'd' shifts to German 't' (day -> Tag). Days, calendar intervals, and seasons systematically take 'der'."
   },
   {
     "id": 11,
+    "level": 1,
     "type": "noun",
     "german": "Traum",
     "gender": "der",
     "english": "dream",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (dream -> Traum, drink -> trinken)."
+    "category": "Shift: d -> t",
+    "shift_rule": "d -> t",
+    "source_english": "dream",
+    "tip": "High German Consonant Shift: English 'dr-' shifts to German 'tr-' (dream -> Traum, drink -> trinken)."
   },
   {
     "id": 12,
+    "level": 1,
     "type": "noun",
     "german": "Tür",
     "gender": "die",
     "english": "door",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (door -> Tür)."
+    "category": "Shift: d -> t",
+    "shift_rule": "d -> t",
+    "source_english": "door",
+    "tip": "High German Consonant Shift: English 'd' shifts to German 't' (door -> Tür). Openings/thresholds take feminine ('die')."
   },
   {
     "id": 13,
-    "type": "noun",
-    "german": "Tochter",
-    "gender": "die",
-    "english": "daughter",
     "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (daughter -> Tochter). Female biological identity -> 'die'."
-  },
-  {
-    "id": 14,
-    "type": "noun",
-    "german": "Garten",
-    "gender": "der",
-    "english": "garden",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (garden -> Garten)."
-  },
-  {
-    "id": 15,
     "type": "noun",
     "german": "Apfel",
     "gender": "der",
     "english": "apple",
-    "level": 1,
-    "tip": "Cognate Shift: English 'p' -> German 'pf' (apple -> Apfel, pepper -> Pfeffer)."
+    "category": "Shift: p -> pf",
+    "shift_rule": "p -> pf",
+    "source_english": "apple",
+    "tip": "High German Consonant Shift: English initial/medial 'p' shifts to German affricate 'pf' (apple -> Apfel, pipe -> Pfeife, pepper -> Pfeffer)."
   },
   {
-    "id": 16,
+    "id": 14,
+    "level": 1,
     "type": "noun",
     "german": "Pfeffer",
     "gender": "der",
     "english": "pepper",
-    "level": 1,
-    "tip": "Cognate Shift: English 'p' -> German 'pf' (pepper -> Pfeffer). Spices generally take 'der'."
+    "category": "Shift: p -> pf",
+    "shift_rule": "p -> pf",
+    "source_english": "pepper",
+    "tip": "High German Consonant Shift: English 'p' shifts to German 'pf' (pepper -> Pfeffer). Pungent culinary spices take masculine ('der')."
   },
   {
-    "id": 17,
-    "type": "noun",
-    "german": "Pferd",
-    "gender": "das",
-    "english": "horse",
+    "id": 15,
     "level": 1,
-    "tip": "Cognate Shift: English 'p' -> German 'pf' (palfrey -> Pferd)."
-  },
-  {
-    "id": 18,
     "type": "noun",
     "german": "Pflanze",
     "gender": "die",
     "english": "plant",
-    "level": 1,
-    "tip": "Cognate Shift: English 'p' -> German 'pf' (plant -> Pflanze). Ends in '-e' -> 'die'."
+    "category": "Shift: p -> pf",
+    "shift_rule": "p -> pf",
+    "source_english": "plant",
+    "tip": "High German Consonant Shift: English 'pl-' shifts to German 'pfl-' (plant -> Pflanze). Nouns ending in '-e' take feminine ('die')."
   },
   {
-    "id": 19,
+    "id": 16,
+    "level": 1,
     "type": "noun",
     "german": "Pfeife",
     "gender": "die",
     "english": "pipe",
-    "level": 1,
-    "tip": "Cognate Shift: English 'p' -> German 'pf' (pipe -> Pfeife)."
+    "category": "Shift: p -> pf",
+    "shift_rule": "p -> pf",
+    "source_english": "pipe",
+    "tip": "High German Consonant Shift: Double shift (pipe -> Pfeife). Feminine noun in '-e'."
   },
   {
-    "id": 20,
-    "type": "noun",
-    "german": "Schiff",
-    "gender": "das",
-    "english": "ship",
+    "id": 17,
     "level": 1,
-    "tip": "Cognate Shift: English 'p' -> German 'ff' (ship -> Schiff, open -> offen)."
-  },
-  {
-    "id": 21,
     "type": "noun",
     "german": "Buch",
     "gender": "das",
     "english": "book",
-    "level": 1,
-    "tip": "Cognate Shift: English hard 'k' -> German 'ch' (book -> Buch, cook -> Koch, break -> brechen)."
+    "category": "Shift: k -> ch",
+    "shift_rule": "k -> ch",
+    "source_english": "book",
+    "tip": "High German Consonant Shift: English hard 'k' shifts to German velar/palatal fricative 'ch' (book -> Buch, cook -> Koch, make -> machen)."
   },
   {
-    "id": 22,
+    "id": 18,
+    "level": 1,
     "type": "noun",
     "german": "Küche",
     "gender": "die",
     "english": "kitchen",
-    "level": 1,
-    "tip": "Cognate Shift: English 'k' -> German 'ch' (kitchen -> Küche). Ends in '-e' -> 'die'."
+    "category": "Shift: k -> ch",
+    "shift_rule": "k -> ch",
+    "source_english": "kitchen",
+    "tip": "High German Consonant Shift: English medial 'ch/k' shifts to German 'ch' (kitchen -> Küche). Ends in '-e' -> 'die'."
   },
   {
-    "id": 23,
+    "id": 19,
+    "level": 1,
     "type": "noun",
     "german": "Milch",
     "gender": "die",
     "english": "milk",
-    "level": 1,
-    "tip": "Cognate Shift: English 'k' -> German 'ch' (milk -> Milch). Feminine milk/dairy category."
+    "category": "Shift: k -> ch",
+    "shift_rule": "k -> ch",
+    "source_english": "milk",
+    "tip": "High German Consonant Shift: English final 'k' shifts to German 'ch' (milk -> Milch). Feminine biological liquid category."
   },
   {
-    "id": 24,
-    "type": "noun",
-    "german": "Woche",
-    "gender": "die",
-    "english": "week",
+    "id": 20,
     "level": 1,
-    "tip": "Cognate Shift: English 'k' -> German 'ch' (week -> Woche). Ends in '-e' -> 'die'."
-  },
-  {
-    "id": 25,
     "type": "noun",
     "german": "Bruder",
     "gender": "der",
     "english": "brother",
-    "level": 1,
-    "tip": "Cognate Shift: English 'th' -> German 'd' (brother -> Bruder, leather -> Leder). Male family -> 'der'."
+    "category": "Shift: th -> d",
+    "shift_rule": "th -> d",
+    "source_english": "brother",
+    "tip": "High German Consonant Shift: English 'th' shifts to German 'd' (brother -> Bruder, leather -> Leder). Biological male relative -> 'der'."
   },
   {
-    "id": 26,
+    "id": 21,
+    "level": 1,
     "type": "noun",
     "german": "Bad",
     "gender": "das",
     "english": "bath",
-    "level": 1,
-    "tip": "Cognate Shift: English 'th' -> German 'd' (bath -> Bad)."
+    "category": "Shift: th -> d",
+    "shift_rule": "th -> d",
+    "source_english": "bath",
+    "tip": "High German Consonant Shift: English final 'th' shifts to German 'd' (bath -> Bad). Neuter wash/utility domain."
   },
   {
-    "id": 27,
-    "type": "noun",
-    "german": "Erde",
-    "gender": "die",
-    "english": "earth",
+    "id": 22,
     "level": 1,
-    "tip": "Cognate Shift: English 'th' -> German 'd' (earth -> Erde). Ends in '-e' -> 'die'."
-  },
-  {
-    "id": 28,
-    "type": "noun",
-    "german": "Feder",
-    "gender": "die",
-    "english": "feather",
-    "level": 1,
-    "tip": "Cognate Shift: English 'th' -> German 'd' (feather -> Feder)."
-  },
-  {
-    "id": 29,
     "type": "noun",
     "german": "Haus",
     "gender": "das",
     "english": "house",
-    "level": 1,
-    "tip": "Direct Cognate: English 'ou' shifts to German 'au' (house -> Haus, mouse -> Maus)."
+    "category": "Vowel Shift: ou -> au",
+    "shift_rule": "ou -> au",
+    "source_english": "house",
+    "tip": "Vowel Diphthong Shift: English 'ou' shifts to German 'au' (house -> Haus, mouse -> Maus). Neuter structural base."
   },
   {
-    "id": 30,
+    "id": 23,
+    "level": 1,
     "type": "noun",
     "german": "Maus",
     "gender": "die",
     "english": "mouse",
-    "level": 1,
-    "tip": "Direct Cognate: English 'ou' shifts to German 'au' (mouse -> Maus)."
+    "category": "Vowel Shift: ou -> au",
+    "shift_rule": "ou -> au",
+    "source_english": "mouse",
+    "tip": "Vowel Diphthong Shift: English 'ou' shifts to German 'au' (mouse -> Maus). Small rodents take feminine ('die')."
   },
   {
-    "id": 31,
-    "type": "noun",
-    "german": "Freund",
-    "gender": "der",
-    "english": "friend",
+    "id": 24,
     "level": 1,
-    "tip": "Direct Cognate: Exact shared Germanic root (friend -> Freund)."
-  },
-  {
-    "id": 32,
     "type": "phrase",
     "german": "Hallo",
     "gender": null,
     "english": "hello",
-    "level": 1,
-    "tip": "Direct Greeting: Exact cognate."
+    "category": "Direct Cognate",
+    "shift_rule": null,
+    "source_english": "hello",
+    "tip": "Universal West Germanic social opening."
   },
   {
-    "id": 33,
+    "id": 25,
+    "level": 1,
     "type": "phrase",
     "german": "Danke",
     "gender": null,
     "english": "thank you",
-    "level": 1,
-    "tip": "Cognate Shift: English 'th' -> German 'd' (thank -> danken/danke)."
+    "category": "Shift: th -> d",
+    "shift_rule": "th -> d",
+    "source_english": "thank",
+    "tip": "Cognate Shift: English 'th' shifts to German 'd' (thank -> danken/danke, think -> denken)."
   },
   {
-    "id": 34,
+    "id": 26,
+    "level": 1,
     "type": "phrase",
     "german": "Bitte",
     "gender": null,
     "english": "please",
-    "level": 1,
-    "tip": "Cognate Anchor: Related to English 'bid' (to request/invite)."
+    "category": "Shift: d -> tt",
+    "shift_rule": "d -> tt",
+    "source_english": "bid",
+    "tip": "Cognate Root: Directly related to English 'bid' (to request/ask). Shift: 'd' -> 'tt'."
   },
   {
-    "id": 35,
+    "id": 27,
+    "level": 1,
     "type": "phrase",
     "german": "Ja",
     "gender": null,
     "english": "yes",
-    "level": 1,
-    "tip": "Cognate Anchor: Cognate with archaic English 'yea'."
+    "category": "Direct Cognate",
+    "shift_rule": null,
+    "source_english": "yea",
+    "tip": "Cognate Anchor: Direct Germanic cognate with archaic English 'yea'."
   },
   {
-    "id": 36,
+    "id": 28,
+    "level": 1,
     "type": "phrase",
     "german": "Nein",
     "gender": null,
     "english": "no",
-    "level": 1,
-    "tip": "Cognate Anchor: Cognate with English 'nay' / 'none'."
+    "category": "Direct Cognate",
+    "shift_rule": null,
+    "source_english": "nay",
+    "tip": "Cognate Anchor: Cognate with Old English 'nā' and dialectal 'nay'."
   },
   {
-    "id": 37,
-    "type": "phrase",
-    "german": "Gut",
-    "gender": null,
-    "english": "good",
-    "level": 1,
-    "tip": "Cognate Shift: English 'd' -> German 't' (good -> gut)."
-  },
-  {
-    "id": 38,
+    "id": 29,
+    "level": 2,
     "type": "noun",
     "german": "Zeitung",
     "gender": "die",
     "english": "newspaper",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+    "category": "Suffix: -ung (100% die)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: 100% of German nouns ending in '-ung' are feminine ('die'). Formed from 'die Zeit' (time/periodical)."
   },
   {
-    "id": 39,
+    "id": 30,
+    "level": 2,
     "type": "noun",
     "german": "Wohnung",
     "gender": "die",
     "english": "apartment",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
+    "category": "Suffix: -ung (100% die)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: Suffix '-ung' forms nominal actions/dwellings and is 100% feminine ('die') (wohnen = to reside)."
   },
   {
-    "id": 40,
+    "id": 31,
+    "level": 2,
     "type": "noun",
     "german": "Rechnung",
     "gender": "die",
     "english": "bill",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die'). (Rechnen = to calculate)."
+    "category": "Suffix: -ung (100% die)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: Suffix '-ung' is 100% feminine ('die'). Root: 'rechnen' (to compute/calculate) + '-ung' = calculation/check."
   },
   {
-    "id": 41,
-    "type": "noun",
-    "german": "Hoffnung",
-    "gender": "die",
-    "english": "hope",
+    "id": 32,
     "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
-  },
-  {
-    "id": 42,
-    "type": "noun",
-    "german": "Lösung",
-    "gender": "die",
-    "english": "solution",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
-  },
-  {
-    "id": 43,
-    "type": "noun",
-    "german": "Meinung",
-    "gender": "die",
-    "english": "opinion",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
-  },
-  {
-    "id": 44,
-    "type": "noun",
-    "german": "Erfahrung",
-    "gender": "die",
-    "english": "experience",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
-  },
-  {
-    "id": 45,
-    "type": "noun",
-    "german": "Bedeutung",
-    "gender": "die",
-    "english": "meaning",
-    "level": 2,
-    "tip": "Suffix Rule: 100% of nouns ending in '-ung' are feminine ('die')."
-  },
-  {
-    "id": 46,
     "type": "noun",
     "german": "Freiheit",
     "gender": "die",
     "english": "freedom",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-heit' are 100% feminine ('die') (matches English '-hood')."
+    "category": "Suffix: -heit (100% die)",
+    "shift_rule": null,
+    "source_english": "freehood",
+    "tip": "Deterministic Suffix: Suffix '-heit' matches English '-hood' (freehood -> Freiheit) and is 100% feminine ('die')."
   },
   {
-    "id": 47,
+    "id": 33,
+    "level": 2,
     "type": "noun",
     "german": "Wahrheit",
     "gender": "die",
     "english": "truth",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-heit' are 100% feminine ('die')."
+    "category": "Suffix: -heit (100% die)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: Suffix '-heit' produces feminine abstract state nouns ('die'). Root: 'wahr' (true)."
   },
   {
-    "id": 48,
-    "type": "noun",
-    "german": "Krankheit",
-    "gender": "die",
-    "english": "illness",
+    "id": 34,
     "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-heit' are 100% feminine ('die')."
-  },
-  {
-    "id": 49,
     "type": "noun",
     "german": "Möglichkeit",
     "gender": "die",
     "english": "possibility",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-keit' are 100% feminine ('die') (matches English '-ness/-ity')."
+    "category": "Suffix: -keit (100% die)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: Suffix '-keit' attaches to adjectives in '-lich/-ig' and is 100% feminine ('die') (matches English '-ility/-ness')."
   },
   {
-    "id": 50,
-    "type": "noun",
-    "german": "Geschwindigkeit",
-    "gender": "die",
-    "english": "speed",
+    "id": 35,
     "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-keit' are 100% feminine ('die')."
-  },
-  {
-    "id": 51,
     "type": "noun",
     "german": "Freundschaft",
     "gender": "die",
     "english": "friendship",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-schaft' are 100% feminine ('die') (matches English '-ship')."
+    "category": "Suffix: -schaft (100% die)",
+    "shift_rule": null,
+    "source_english": "friendship",
+    "tip": "Deterministic Suffix: Suffix '-schaft' directly corresponds to English '-ship' (friendship -> Freundschaft) and is 100% feminine ('die')."
   },
   {
-    "id": 52,
-    "type": "noun",
-    "german": "Mannschaft",
-    "gender": "die",
-    "english": "team",
+    "id": 36,
     "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-schaft' are 100% feminine ('die')."
-  },
-  {
-    "id": 53,
     "type": "noun",
     "german": "Station",
     "gender": "die",
     "english": "station",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-tion' are 100% feminine ('die')."
+    "category": "Suffix: -tion (100% die)",
+    "shift_rule": null,
+    "source_english": "station",
+    "tip": "Deterministic Suffix: Latinate nouns ending in '-tion' are 100% feminine ('die')."
   },
   {
-    "id": 54,
-    "type": "noun",
-    "german": "Information",
-    "gender": "die",
-    "english": "information",
+    "id": 37,
     "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-tion' are 100% feminine ('die')."
-  },
-  {
-    "id": 55,
-    "type": "noun",
-    "german": "Situation",
-    "gender": "die",
-    "english": "situation",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-tion' are 100% feminine ('die')."
-  },
-  {
-    "id": 56,
     "type": "noun",
     "german": "Universität",
     "gender": "die",
     "english": "university",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-tät' are 100% feminine ('die') (matches English '-ity')."
+    "category": "Suffix: -tät (100% die)",
+    "shift_rule": null,
+    "source_english": "university",
+    "tip": "Deterministic Suffix: Latinate abstracts in '-tät' match English '-ity' and are 100% feminine ('die')."
   },
   {
-    "id": 57,
-    "type": "noun",
-    "german": "Qualität",
-    "gender": "die",
-    "english": "quality",
+    "id": 38,
     "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-tät' are 100% feminine ('die')."
-  },
-  {
-    "id": 58,
-    "type": "noun",
-    "german": "Energie",
-    "gender": "die",
-    "english": "energy",
-    "level": 2,
-    "tip": "Suffix Rule: Loan words ending in stressed '-ie' are 100% feminine ('die')."
-  },
-  {
-    "id": 59,
-    "type": "noun",
-    "german": "Biologie",
-    "gender": "die",
-    "english": "biology",
-    "level": 2,
-    "tip": "Suffix Rule: Scientific fields ending in '-ie' are 100% feminine ('die')."
-  },
-  {
-    "id": 60,
     "type": "noun",
     "german": "Brötchen",
     "gender": "das",
     "english": "bread roll",
-    "level": 2,
-    "tip": "Diminutive Rule: 100% of nouns ending in '-chen' are neuter ('das'), regardless of base noun."
+    "category": "Diminutive: -chen (100% das)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Diminutive: Suffix '-chen' causes umlaut and forces 100% neuter ('das'), regardless of base noun gender."
   },
   {
-    "id": 61,
+    "id": 39,
+    "level": 2,
     "type": "noun",
     "german": "Mädchen",
     "gender": "das",
     "english": "girl",
-    "level": 2,
-    "tip": "Diminutive Rule: Suffix '-chen' grammatically forces neuter ('das'), overriding biological gender."
+    "category": "Diminutive: -chen (100% das)",
+    "shift_rule": null,
+    "source_english": "maiden",
+    "tip": "Grammatical Override: Suffix '-chen' forces neuter ('das'), showing grammatical morphology overrides biological sex in German."
   },
   {
-    "id": 62,
-    "type": "noun",
-    "german": "Häuschen",
-    "gender": "das",
-    "english": "small house",
+    "id": 40,
     "level": 2,
-    "tip": "Diminutive Rule: Suffix '-chen' always takes 'das'."
-  },
-  {
-    "id": 63,
-    "type": "noun",
-    "german": "Fräulein",
-    "gender": "das",
-    "english": "young lady",
-    "level": 2,
-    "tip": "Diminutive Rule: Suffix '-lein' always takes 'das'."
-  },
-  {
-    "id": 64,
     "type": "noun",
     "german": "Dokument",
     "gender": "das",
     "english": "document",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-ment' are 100% neuter ('das')."
+    "category": "Suffix: -ment (100% das)",
+    "shift_rule": null,
+    "source_english": "document",
+    "tip": "Deterministic Suffix: Latinate substantives ending in '-ment' are 100% neuter ('das')."
   },
   {
-    "id": 65,
-    "type": "noun",
-    "german": "Instrument",
-    "gender": "das",
-    "english": "instrument",
+    "id": 41,
     "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-ment' are 100% neuter ('das')."
-  },
-  {
-    "id": 66,
-    "type": "noun",
-    "german": "Experiment",
-    "gender": "das",
-    "english": "experiment",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-ment' are 100% neuter ('das')."
-  },
-  {
-    "id": 67,
     "type": "noun",
     "german": "Zentrum",
     "gender": "das",
     "english": "center",
-    "level": 2,
-    "tip": "Suffix Rule: Latin origin nouns ending in '-um' are 100% neuter ('das')."
+    "category": "Suffix: -um (100% das)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: Direct classical Latin neuter nouns ending in '-um' retain neuter ('das')."
   },
   {
-    "id": 68,
-    "type": "noun",
-    "german": "Museum",
-    "gender": "das",
-    "english": "museum",
+    "id": 42,
     "level": 2,
-    "tip": "Suffix Rule: Latin origin nouns ending in '-um' are 100% neuter ('das')."
-  },
-  {
-    "id": 69,
     "type": "noun",
     "german": "Lehrer",
     "gender": "der",
     "english": "teacher",
-    "level": 2,
-    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
+    "category": "Agent Suffix: -er (der)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Agent Nominalization: Human actors and vocational operators ending in '-er' take masculine ('der'). Female form adds '-in' ('die Lehrerin')."
   },
   {
-    "id": 70,
+    "id": 43,
+    "level": 2,
     "type": "noun",
     "german": "Fahrer",
     "gender": "der",
     "english": "driver",
-    "level": 2,
-    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
+    "category": "Agent Suffix: -er (der)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Agent Nominalization: Verb root 'fahren' (to drive) + agent suffix '-er' = masculine operator ('der Fahrer')."
   },
   {
-    "id": 71,
-    "type": "noun",
-    "german": "Kellner",
-    "gender": "der",
-    "english": "waiter",
+    "id": 44,
     "level": 2,
-    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
-  },
-  {
-    "id": 72,
-    "type": "noun",
-    "german": "Bäcker",
-    "gender": "der",
-    "english": "baker",
-    "level": 2,
-    "tip": "Agent Rule: Male agents and professions ending in '-er' take masculine ('der')."
-  },
-  {
-    "id": 73,
-    "type": "noun",
-    "german": "Computer",
-    "gender": "der",
-    "english": "computer",
-    "level": 2,
-    "tip": "Technical Agent Rule: Mechanical devices/tools ending in '-er' take masculine ('der')."
-  },
-  {
-    "id": 74,
-    "type": "noun",
-    "german": "Drucker",
-    "gender": "der",
-    "english": "printer",
-    "level": 2,
-    "tip": "Technical Agent Rule: Mechanical devices/tools ending in '-er' take masculine ('der')."
-  },
-  {
-    "id": 75,
-    "type": "noun",
-    "german": "Flüchtling",
-    "gender": "der",
-    "english": "refugee",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-ling' take masculine ('der')."
-  },
-  {
-    "id": 76,
     "type": "noun",
     "german": "Frühling",
     "gender": "der",
     "english": "spring",
-    "level": 2,
-    "tip": "Suffix Rule: Seasons and nouns ending in '-ling' take masculine ('der')."
+    "category": "Suffix: -ling (100% der)",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Deterministic Suffix: Suffix '-ling' and all four calendar seasons (Frühling, Sommer, Herbst, Winter) take masculine ('der')."
   },
   {
-    "id": 77,
-    "type": "noun",
-    "german": "Motor",
-    "gender": "der",
-    "english": "engine",
+    "id": 45,
     "level": 2,
-    "tip": "Suffix Rule: Latinate nouns ending in '-or' take masculine ('der')."
-  },
-  {
-    "id": 78,
-    "type": "noun",
-    "german": "Optimismus",
-    "gender": "der",
-    "english": "optimism",
-    "level": 2,
-    "tip": "Suffix Rule: Nouns ending in '-ismus' take masculine ('der') (matches English '-ism')."
-  },
-  {
-    "id": 79,
     "type": "phrase",
     "german": "Guten Morgen",
     "gender": null,
     "english": "good morning",
-    "level": 2,
-    "tip": "Accusative Anchor: 'Guten' takes masculine accusative '-en' as a direct object greeting."
+    "category": "Accusative Time Phrase",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Accusative Inflection: Masculine 'der Morgen' takes accusative ending '-en' ('Guten Morgen') as an implied direct object greeting."
   },
   {
-    "id": 80,
-    "type": "phrase",
-    "german": "Guten Tag",
-    "gender": null,
-    "english": "good day",
+    "id": 46,
     "level": 2,
-    "tip": "Accusative Anchor: 'Guten' takes masculine accusative '-en'."
-  },
-  {
-    "id": 81,
-    "type": "phrase",
-    "german": "Guten Abend",
-    "gender": null,
-    "english": "good evening",
-    "level": 2,
-    "tip": "Accusative Anchor: 'Guten' takes masculine accusative '-en'."
-  },
-  {
-    "id": 82,
     "type": "phrase",
     "german": "Auf Wiedersehen",
     "gender": null,
     "english": "goodbye",
-    "level": 2,
-    "tip": "Root Breakdown: 'Auf' (upon) + 'wieder' (again) + 'sehen' (seeing) = 'Until we meet again'."
+    "category": "Morphological Chunk",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Etymological Breakdown: 'Auf' (upon) + 'wieder' (again) + 'sehen' (seeing) = 'Until seeing each other again'."
   },
   {
-    "id": 83,
-    "type": "phrase",
-    "german": "Tschüss",
-    "gender": null,
-    "english": "bye",
-    "level": 2,
-    "tip": "Casual Greeting: Standard informal German farewell."
-  },
-  {
-    "id": 84,
+    "id": 47,
+    "level": 3,
     "type": "phrase",
     "german": "Es tut mir leid",
     "gender": null,
     "english": "i am sorry",
-    "level": 3,
-    "tip": "Idiomatic Construction: Literally 'It does sorrow to me' (tut = does, mir = dative 'to me', leid = sorrow)."
+    "category": "Idiomatic Dative Chunk",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Dative Impersonal Construction: Literally 'It does sorrow to me' (tut = does, mir = dative first person 'to me', leid = sorrow)."
   },
   {
-    "id": 85,
+    "id": 48,
+    "level": 3,
     "type": "phrase",
     "german": "Wie geht es Ihnen?",
     "gender": null,
     "english": "how are you",
-    "level": 3,
-    "tip": "Dative Construction: Literally 'How goes it to you?' (Ihnen = formal dative 'you')."
+    "category": "Formal Dative Construction",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Dative Impersonal Construction: Literally 'How goes it to you?' ('Ihnen' is the formal capitalized dative of 'Sie')."
   },
   {
-    "id": 86,
-    "type": "phrase",
-    "german": "Wie geht's?",
-    "gender": null,
-    "english": "how are you",
+    "id": 49,
     "level": 3,
-    "tip": "Informal Contraction: 'Wie geht es' contracts to 'Wie geht's'."
-  },
-  {
-    "id": 87,
     "type": "phrase",
     "german": "Mir geht es gut",
     "gender": null,
     "english": "i am doing well",
-    "level": 3,
-    "tip": "Dative Construction: Literally 'To me it goes good'."
+    "category": "Dative State Construction",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Dative Syntax: Inversion 'Mir geht es gut' emphasizes state: literally 'To me it goes well'."
   },
   {
-    "id": 88,
+    "id": 50,
+    "level": 3,
     "type": "phrase",
     "german": "Ich verstehe nicht",
     "gender": null,
     "english": "i do not understand",
-    "level": 3,
-    "tip": "Negation Logic: 'nicht' follows the conjugated verb to negate the full clause."
+    "category": "Verbal Negation Logic",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Syntactic Negation: 'nicht' follows the inflected matrix verb ('verstehe') to negate the entire verbal clause."
   },
   {
-    "id": 89,
+    "id": 51,
+    "level": 3,
     "type": "phrase",
     "german": "Ich weiß nicht",
     "gender": null,
     "english": "i do not know",
-    "level": 3,
-    "tip": "Irregular Verb: 'wissen' (to know a fact). First person singular is 'weiß'."
+    "category": "Preterite-Present Verb",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Irregular Morphology: 'wissen' (to know factual information) exhibits zero-ending in 1st/3rd person singular ('ich weiß')."
   },
   {
-    "id": 90,
+    "id": 52,
+    "level": 3,
     "type": "phrase",
     "german": "Die Rechnung, bitte",
     "gender": null,
     "english": "the check please",
-    "level": 3,
-    "tip": "Communicative Chunk: 'Rechnung' (calculation/bill) + '-ung' (die) + 'bitte' (please)."
+    "category": "Conversational Idiom",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Communicative Nominal Chunk: 'Rechnung' ('rechnen' + '-ung', feminine) + courteous particle 'bitte'."
   },
   {
-    "id": 91,
+    "id": 53,
+    "level": 3,
     "type": "phrase",
     "german": "Wo ist der Bahnhof?",
     "gender": null,
     "english": "where is the train station",
-    "level": 3,
-    "tip": "Nominative Construction: 'Bahnhof' remains 'der' as the subject after 'sein'."
+    "category": "Copula Nominative",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Predicate Nominative: The copula verb 'sein' (ist) does not govern accusative; 'Bahnhof' remains base nominative 'der Bahnhof'."
   },
   {
-    "id": 92,
-    "type": "phrase",
-    "german": "Ich möchte bezahlen",
-    "gender": null,
-    "english": "i would like to pay",
+    "id": 54,
     "level": 3,
-    "tip": "Modal Construction: 'möchte' (would like) sends infinitive 'bezahlen' to end of sentence."
-  },
-  {
-    "id": 93,
     "type": "phrase",
     "german": "Können Sie mir helfen?",
     "gender": null,
     "english": "can you help me",
-    "level": 3,
-    "tip": "Dative Object: 'helfen' always governs a dative pronoun ('mir' instead of 'mich')."
-  },
-  {
-    "id": 94,
-    "type": "phrase",
-    "german": "Sprechen Sie Englisch?",
-    "gender": null,
-    "english": "do you speak english",
-    "level": 3,
-    "tip": "Vowel Change: Strong verb 'sprechen' (e -> i in singular, stays 'e' in formal Sie)."
-  },
-  {
-    "id": 95,
-    "type": "phrase",
-    "german": "Ich habe keine Zeit",
-    "gender": null,
-    "english": "i have no time",
-    "level": 3,
-    "tip": "Negative Article: 'keine' negates feminine noun 'die Zeit' in the accusative."
+    "category": "Dative Governing Verb",
+    "shift_rule": null,
+    "source_english": null,
+    "tip": "Lexical Dative Government: The verb 'helfen' strictly demands a dative object ('mir'), never accusative ('mich')."
   }
 ]

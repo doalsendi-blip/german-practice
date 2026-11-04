@@ -1,43 +1,145 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './App.css';
 import rawData from './data/vocabulary.json';
 
+const SRS_STORAGE_KEY = 'DEUTSCH_MUNDLICH_SRS_V1';
+
+// Levenshtein distance for fuzzy evaluation
+function getLevenshteinDistance(a, b) {
+  const matrix = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+  for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+  for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      matrix[i][j] = Math.min(
+        matrix[i - 1][j] + 1,
+        matrix[i][j - 1] + 1,
+        matrix[i - 1][j - 1] + cost
+      );
+    }
+  }
+  return matrix[a.length][b.length];
+}
+
+// SM-2 Spaced Repetition Logic
+function updateSrsItem(itemRecord, gradeQuality) {
+  // gradeQuality: 5 (perfect), 3 (correct with struggle/fuzzy), 1 (miss)
+  let { repetitions = 0, interval = 1, easeFactor = 2.5 } = itemRecord || {};
+
+  if (gradeQuality >= 3) {
+    if (repetitions === 0) {
+      interval = 1;
+    } else if (repetitions === 1) {
+      interval = 6;
+    } else {
+      interval = Math.round(interval * easeFactor);
+    }
+    repetitions += 1;
+  } else {
+    repetitions = 0;
+    interval = 1;
+  }
+
+  easeFactor = easeFactor + (0.1 - (5 - gradeQuality) * (0.08 + (5 - gradeQuality) * 0.02));
+  if (easeFactor < 1.3) easeFactor = 1.3;
+
+  const nextDueDate = Date.now() + interval * 24 * 60 * 60 * 1000;
+
+  return {
+    repetitions,
+    interval,
+    easeFactor: parseFloat(easeFactor.toFixed(2)),
+    dueDate: nextDueDate,
+    lastReviewed: Date.now()
+  };
+}
+
+// Audio Pronunciation via Web Speech API
+function speakGerman(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'de-DE';
+  utterance.rate = 0.88; // Slight reduction for phonetic precision
+  
+  const voices = window.speechSynthesis.getVoices();
+  const deVoice = voices.find(v => v.lang === 'de-DE' || v.lang.startsWith('de'));
+  if (deVoice) utterance.voice = deVoice;
+  
+  window.speechSynthesis.speak(utterance);
+}
+
 function App() {
-  const [view, setView] = useState('MENU');
+  const [view, setView] = useState('MENU'); // 'MENU' | 'GAME' | 'RESULT'
   const [activeLevel, setActiveLevel] = useState(1);
-  const [activeMode, setActiveMode] = useState('gender');
+  const [activeMode, setActiveMode] = useState('gender'); // 'gender' | 'recognition' | 'cipher'
   const [deck, setDeck] = useState([]);
   const [idx, setIdx] = useState(0);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [lives, setLives] = useState(3);
   const [feedback, setFeedback] = useState(null);
-  const [showHint, setShowHint] = useState(false);
+  const [showPattern, setShowPattern] = useState(false);
   const [options, setOptions] = useState([]);
+  const [cipherInput, setCipherInput] = useState('');
+  
+  // Load SRS registry from localStorage
+  const [srsData, setSrsData] = useState(() => {
+    try {
+      const stored = localStorage.getItem(SRS_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : {};
+    } catch {
+      return {};
+    }
+  });
 
-  const generateOptions = (currentItem, pool) => {
-    const wrong = pool
-      .filter(item => item.english !== currentItem.english)
-      .map(item => item.english);
-    const shuffledWrong = [...new Set(wrong)].sort(() => Math.random() - 0.5).slice(0, 3);
-    const combined = [...shuffledWrong, currentItem.english].sort(() => Math.random() - 0.5);
-    return combined;
+  const saveSrsRecord = (itemId, grade) => {
+    const updatedRecord = updateSrsItem(srsData[itemId], grade);
+    const updatedSrs = { ...srsData, [itemId]: updatedRecord };
+    setSrsData(updatedSrs);
+    try {
+      localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify(updatedSrs));
+    } catch (e) {
+      console.warn('localStorage write failure', e);
+    }
   };
 
-  const startGame = (mode, level) => {
+  // Generate 4 randomized multiple-choice distractors
+  const generateDistractors = useCallback((targetItem, pool) => {
+    const cleanPool = pool.filter(p => p.id !== targetItem.id && p.english !== targetItem.english);
+    const shuffled = [...cleanPool].sort(() => Math.random() - 0.5);
+    const choices = shuffled.slice(0, 3).map(p => p.english);
+    choices.push(targetItem.english);
+    return choices.sort(() => Math.random() - 0.5);
+  }, []);
+
+  const launchEngine = (mode, level) => {
     let pool = rawData.filter(d => d.level === level);
 
     if (mode === 'gender') {
       pool = pool.filter(d => d.type === 'noun' && d.gender);
+    } else if (mode === 'cipher') {
+      pool = pool.filter(d => d.shift_rule && d.source_english);
     }
 
     if (pool.length === 0) {
-      alert('No items found for this selection.');
+      alert('No matching linguistic items available for this configuration.');
       return;
     }
 
-    const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    setDeck(shuffled);
+    // Sort queue prioritizing items overdue in SRS schedule
+    const now = Date.now();
+    const sortedPool = [...pool].sort((a, b) => {
+      const aDue = srsData[a.id]?.dueDate || 0;
+      const bDue = srsData[b.id]?.dueDate || 0;
+      if (aDue < now && bDue >= now) return -1;
+      if (bDue < now && aDue >= now) return 1;
+      return Math.random() - 0.5;
+    });
+
+    setDeck(sortedPool);
     setActiveMode(mode);
     setActiveLevel(level);
     setIdx(0);
@@ -45,235 +147,371 @@ function App() {
     setStreak(0);
     setLives(3);
     setFeedback(null);
-    setShowHint(false);
-    if (mode === 'translation') {
-      setOptions(generateOptions(shuffled[0], rawData));
+    setShowPattern(false);
+    setCipherInput('');
+
+    if (mode === 'recognition') {
+      setOptions(generateDistractors(sortedPool[0], rawData));
     }
+
+    speakGerman(sortedPool[0].german);
     setView('GAME');
   };
 
-  const handleEvaluation = (isCorrect, answerLabel) => {
-    const item = deck[idx];
+  const currentItem = useMemo(() => deck[idx] || null, [deck, idx]);
+
+  // Unified answer evaluation
+  const evaluateAnswer = useCallback((isCorrect, gradeQuality, answerContext) => {
+    if (!currentItem) return;
+
+    saveSrsRecord(currentItem.id, gradeQuality);
+
     if (isCorrect) {
-      const bonus = Math.floor(streak / 3) + 1;
-      const pts = 10 * bonus;
-      setScore(s => s + pts);
-      setStreak(s => s + 1);
-      setFeedback({ ok: true, msg: `CORRECT (+${pts} pts)`, tip: item.tip });
+      const multiplier = Math.floor(streak / 3) + 1;
+      const points = 10 * multiplier;
+      setScore(s => s + points);
+      setStreak(st => st + 1);
+      setFeedback({
+        status: 'correct',
+        headline: `RICHTIG (+${points} pts)`,
+        subtext: answerContext,
+        tip: currentItem.tip
+      });
+      speakGerman(currentItem.german);
     } else {
       const remainingLives = lives - 1;
       setLives(remainingLives);
       setStreak(0);
-      setFeedback({ ok: false, msg: `INCORRECT: ${answerLabel}`, tip: item.tip });
+      setFeedback({
+        status: 'incorrect',
+        headline: 'NICHT KORREKT',
+        subtext: answerContext,
+        tip: currentItem.tip
+      });
+      speakGerman(currentItem.german);
+
       if (remainingLives <= 0) {
-        setTimeout(() => setView('RESULT'), 2500);
+        setTimeout(() => setView('RESULT'), 2400);
         return;
       }
     }
 
     setTimeout(() => {
       setFeedback(null);
-      setShowHint(false);
-      const nextIdx = (idx + 1) % deck.length;
-      setIdx(nextIdx);
-      if (activeMode === 'translation') {
-        setOptions(generateOptions(deck[nextIdx], rawData));
+      setShowPattern(false);
+      setCipherInput('');
+      const nextIndex = (idx + 1) % deck.length;
+      setIdx(nextIndex);
+
+      if (activeMode === 'recognition') {
+        setOptions(generateDistractors(deck[nextIndex], rawData));
       }
-    }, 2500);
+      speakGerman(deck[nextIndex].german);
+    }, 2400);
+  }, [currentItem, deck, idx, lives, streak, activeMode, generateDistractors, srsData]);
+
+  // Gender Trainer Handler
+  const handleGenderChoice = useCallback((article) => {
+    if (!currentItem || feedback) return;
+    const match = article === currentItem.gender;
+    const grade = match ? 5 : 1;
+    evaluateAnswer(match, grade, `${currentItem.gender} ${currentItem.german} (${currentItem.english})`);
+  }, [currentItem, feedback, evaluateAnswer]);
+
+  // Recognition Multiple Choice Handler
+  const handleRecognitionChoice = useCallback((choice) => {
+    if (!currentItem || feedback) return;
+    const match = choice === currentItem.english;
+    const grade = match ? 5 : 1;
+    evaluateAnswer(match, grade, `${currentItem.german} = ${currentItem.english}`);
+  }, [currentItem, feedback, evaluateAnswer]);
+
+  // Cognate Cipher Submit Handler
+  const handleCipherSubmit = (e) => {
+    if (e) e.preventDefault();
+    if (!cipherInput.trim() || !currentItem || feedback) return;
+
+    const normalizedInput = cipherInput.trim().toLowerCase();
+    const normalizedTarget = currentItem.german.toLowerCase();
+    const dist = getLevenshteinDistance(normalizedInput, normalizedTarget);
+
+    if (dist === 0) {
+      evaluateAnswer(true, 5, `Target: ${currentItem.german}`);
+    } else if (dist <= 1) {
+      evaluateAnswer(true, 3, `Accepted (Minor typo): ${currentItem.german}`);
+    } else {
+      evaluateAnswer(false, 1, `Correct Transformation: ${currentItem.german}`);
+    }
   };
 
-  const submitGender = (chosenGender) => {
-    const item = deck[idx];
-    handleEvaluation(chosenGender === item.gender, `${item.gender} ${item.german} (${item.english})`);
-  };
+  // Keyboard Hotkey Listener
+  useEffect(() => {
+    if (view !== 'GAME' || feedback) return;
 
-  const submitTranslationChoice = (choice) => {
-    const item = deck[idx];
-    handleEvaluation(choice === item.english, item.english);
-  };
+    const handleKeyDown = (e) => {
+      const key = e.key.toLowerCase();
 
-  const currentItem = deck[idx];
+      if (key === 'escape') {
+        setView('MENU');
+        return;
+      }
+      if (key === ' ' || key === 'spacebar') {
+        e.preventDefault();
+        if (currentItem) speakGerman(currentItem.german);
+        return;
+      }
+      if (key === 'h') {
+        setShowPattern(p => !p);
+        return;
+      }
+
+      if (activeMode === 'gender') {
+        if (key === '1') handleGenderChoice('der');
+        if (key === '2') handleGenderChoice('die');
+        if (key === '3') handleGenderChoice('das');
+      } else if (activeMode === 'recognition') {
+        if (['1', '2', '3', '4'].includes(key)) {
+          const optIdx = parseInt(key, 10) - 1;
+          if (options[optIdx]) handleRecognitionChoice(options[optIdx]);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [view, activeMode, feedback, currentItem, options, handleGenderChoice, handleRecognitionChoice]);
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#0b1120', color: '#f8fafc', fontFamily: 'system-ui, -apple-system, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', boxSizing: 'border-box' }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#090d16', color: '#f8fafc', fontFamily: 'system-ui, -apple-system, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px', boxSizing: 'border-box' }}>
       
+      {/* CURRICULUM SELECTION SCREEN */}
       {view === 'MENU' && (
-        <div style={{ width: '100%', maxWidth: '520px', background: '#1e293b', padding: '36px 32px', borderRadius: '16px', border: '1px solid #334155', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.5)' }}>
-          <h1 style={{ margin: '0 0 6px 0', fontSize: '26px', color: '#38bdf8', textAlign: 'center', fontWeight: '800' }}>DEUTSCH MÜNDLICH</h1>
-          <p style={{ margin: '0 0 24px 0', color: '#94a3b8', fontSize: '14px', textAlign: 'center' }}>Scaffolded Structural Cognates & Patterns</p>
-          
+        <div style={{ width: '100%', maxWidth: '580px', background: '#131b2e', padding: '36px 32px', borderRadius: '16px', border: '1px solid #1e293b', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)' }}>
+          <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+            <h1 style={{ margin: '0 0 6px 0', fontSize: '28px', color: '#38bdf8', fontWeight: '800', letterSpacing: '-0.02em' }}>DEUTSCH MÜNDLICH</h1>
+            <p style={{ margin: 0, color: '#94a3b8', fontSize: '14px' }}>Systematic Germanic Cognates & Morphological Framework</p>
+          </div>
+
           <div style={{ marginBottom: '24px' }}>
-            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>1. Select Difficulty Tier</span>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px', marginTop: '8px' }}>
-              <button
-                onClick={() => setActiveLevel(1)}
-                style={{
-                  padding: '12px 16px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  backgroundColor: activeLevel === 1 ? '#0284c7' : '#0f172a',
-                  color: '#f8fafc',
-                  border: '1px solid',
-                  borderColor: activeLevel === 1 ? '#38bdf8' : '#334155',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  textAlign: 'left'
-                }}
-              >
-                Level 1: Transparent Cognates & Sound Shifts (t &rarr; d, p &rarr; pf)
-              </button>
-              <button
-                onClick={() => setActiveLevel(2)}
-                style={{
-                  padding: '12px 16px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  backgroundColor: activeLevel === 2 ? '#0284c7' : '#0f172a',
-                  color: '#f8fafc',
-                  border: '1px solid',
-                  borderColor: activeLevel === 2 ? '#38bdf8' : '#334155',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  textAlign: 'left'
-                }}
-              >
-                Level 2: Suffix Rules (-ung, -heit, -chen) & Core Words
-              </button>
-              <button
-                onClick={() => setActiveLevel(3)}
-                style={{
-                  padding: '12px 16px',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  backgroundColor: activeLevel === 3 ? '#0284c7' : '#0f172a',
-                  color: '#f8fafc',
-                  border: '1px solid',
-                  borderColor: activeLevel === 3 ? '#38bdf8' : '#334155',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  textAlign: 'left'
-                }}
-              >
-                Level 3: Multi-Word Idioms & Case Logic
-              </button>
+            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.08em' }}>1. Pedagogical Level</span>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px', marginTop: '10px' }}>
+              {[
+                { lvl: 1, title: 'Level 1: High German Sound Shifts & Core Roots', desc: 't -> ss/z, d -> t, p -> pf, hard k -> ch' },
+                { lvl: 2, title: 'Level 2: Deterministic Suffixes & Derivatives', desc: '-ung (die), -heit/keit (die), -chen (das), -er (der)' },
+                { lvl: 3, title: 'Level 3: Case Syntax & Structural Idioms', desc: 'Dative prepositions, verb placement, accusative objects' }
+              ].map(tier => (
+                <button
+                  key={tier.lvl}
+                  onClick={() => setActiveLevel(tier.lvl)}
+                  style={{
+                    padding: '14px 16px',
+                    backgroundColor: activeLevel === tier.lvl ? '#0369a1' : '#0a101d',
+                    color: '#f8fafc',
+                    border: '1px solid',
+                    borderColor: activeLevel === tier.lvl ? '#38bdf8' : '#1e293b',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                  }}
+                >
+                  <div style={{ fontSize: '14px', fontWeight: '700' }}>{tier.title}</div>
+                  <div style={{ fontSize: '12px', color: activeLevel === tier.lvl ? '#e0f2fe' : '#64748b', marginTop: '3px' }}>{tier.desc}</div>
+                </button>
+              ))}
             </div>
           </div>
 
           <div>
-            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>2. Select Engine</span>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '8px' }}>
+            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.08em' }}>2. Cognitive Training Engine</span>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', marginTop: '10px' }}>
               <button
-                onClick={() => startGame('gender', activeLevel)}
-                style={{ padding: '16px', fontSize: '14px', fontWeight: '700', backgroundColor: '#0f172a', color: '#38bdf8', border: '1px solid #0284c7', borderRadius: '10px', cursor: 'pointer' }}
+                onClick={() => launchEngine('gender', activeLevel)}
+                style={{ padding: '16px 12px', backgroundColor: '#0a101d', color: '#38bdf8', border: '1px solid #0284c7', borderRadius: '10px', cursor: 'pointer', textAlign: 'center' }}
               >
-                Gender Trainer<br /><span style={{ fontSize: '11px', color: '#64748b', fontWeight: '400' }}>der / die / das</span>
+                <div style={{ fontSize: '14px', fontWeight: '800' }}>Article Trainer</div>
+                <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>der / die / das (1, 2, 3)</div>
               </button>
               <button
-                onClick={() => startGame('translation', activeLevel)}
-                style={{ padding: '16px', fontSize: '14px', fontWeight: '700', backgroundColor: '#0f172a', color: '#10b981', border: '1px solid #059669', borderRadius: '10px', cursor: 'pointer' }}
+                onClick={() => launchEngine('recognition', activeLevel)}
+                style={{ padding: '16px 12px', backgroundColor: '#0a101d', color: '#10b981', border: '1px solid #059669', borderRadius: '10px', cursor: 'pointer', textAlign: 'center' }}
               >
-                Recognition Recall<br /><span style={{ fontSize: '11px', color: '#64748b', fontWeight: '400' }}>Multiple Choice Meaning</span>
+                <div style={{ fontSize: '14px', fontWeight: '800' }}>Recall Quiz</div>
+                <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>Multi-Choice (1-4)</div>
+              </button>
+              <button
+                onClick={() => launchEngine('cipher', activeLevel)}
+                style={{ padding: '16px 12px', backgroundColor: '#0a101d', color: '#f59e0b', border: '1px solid #d97706', borderRadius: '10px', cursor: 'pointer', textAlign: 'center' }}
+              >
+                <div style={{ fontSize: '14px', fontWeight: '800' }}>Cognate Cipher</div>
+                <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>Active Shift Typing</div>
               </button>
             </div>
           </div>
         </div>
       )}
 
+      {/* ACTIVE GAME CARD VIEW */}
       {view === 'GAME' && currentItem && (
-        <div style={{ width: '100%', maxWidth: '560px', background: '#1e293b', padding: '28px', borderRadius: '16px', border: '1px solid #334155', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)' }}>
+        <div style={{ width: '100%', maxWidth: '580px', background: '#131b2e', padding: '28px', borderRadius: '16px', border: '1px solid #1e293b', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)' }}>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '14px', borderBottom: '1px solid #334155', marginBottom: '18px' }}>
-            <span style={{ fontSize: '13px', fontWeight: '700', color: activeMode === 'gender' ? '#38bdf8' : '#10b981' }}>
-              {activeMode === 'gender' ? 'ARTICLE TRAINER' : 'RECOGNITION QUIZ'} • Level {activeLevel}
-            </span>
-            <button onClick={() => setView('MENU')} style={{ background: '#334155', border: 'none', color: '#f87171', fontSize: '12px', fontWeight: '700', padding: '6px 12px', borderRadius: '6px', cursor: 'pointer', textTransform: 'uppercase' }}>Exit</button>
+          {/* Header Metadata Navigation */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '12px', borderBottom: '1px solid #1e293b', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '11px', fontWeight: '800', letterSpacing: '0.05em', padding: '3px 8px', borderRadius: '4px', backgroundColor: '#1e293b', color: '#38bdf8' }}>
+                LEVEL {activeLevel}
+              </span>
+              {currentItem.category && (
+                <span style={{ fontSize: '11px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', backgroundColor: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.2)' }}>
+                  {currentItem.category}
+                </span>
+              )}
+            </div>
+            <button onClick={() => setView('MENU')} style={{ background: '#1e293b', border: 'none', color: '#f87171', fontSize: '11px', fontWeight: '800', padding: '5px 12px', borderRadius: '6px', cursor: 'pointer', textTransform: 'uppercase' }}>
+              [ESC] Exit
+            </button>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginBottom: '24px' }}>
-            <div style={{ background: '#0f172a', padding: '8px 12px', borderRadius: '8px', border: '1px solid #334155', textAlign: 'center' }}>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '700' }}>SCORE</div>
+          {/* Telemetry Dashboard */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', marginBottom: '24px' }}>
+            <div style={{ background: '#0a101d', padding: '8px 12px', borderRadius: '8px', border: '1px solid #1e293b', textAlign: 'center' }}>
+              <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '800' }}>SCORE</div>
               <div style={{ fontSize: '18px', fontWeight: '800', color: '#38bdf8' }}>{score}</div>
             </div>
-            <div style={{ background: '#0f172a', padding: '8px 12px', borderRadius: '8px', border: '1px solid #334155', textAlign: 'center' }}>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '700' }}>STREAK</div>
+            <div style={{ background: '#0a101d', padding: '8px 12px', borderRadius: '8px', border: '1px solid #1e293b', textAlign: 'center' }}>
+              <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '800' }}>STREAK</div>
               <div style={{ fontSize: '18px', fontWeight: '800', color: '#fbbf24' }}>{streak}x</div>
             </div>
-            <div style={{ background: '#0f172a', padding: '8px 12px', borderRadius: '8px', border: '1px solid #334155', textAlign: 'center' }}>
-              <div style={{ fontSize: '11px', color: '#64748b', fontWeight: '700' }}>LIVES</div>
+            <div style={{ background: '#0a101d', padding: '8px 12px', borderRadius: '8px', border: '1px solid #1e293b', textAlign: 'center' }}>
+              <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '800' }}>LIVES</div>
               <div style={{ fontSize: '18px', fontWeight: '800', color: '#ef4444', letterSpacing: '3px' }}>
                 {Array.from({ length: 3 }).map((_, i) => (i < lives ? '●' : '○')).join(' ')}
               </div>
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', padding: '8px 0 20px 0' }}>
-            <div style={{ fontSize: '42px', fontWeight: '800', letterSpacing: '-0.02em', color: '#ffffff', marginBottom: '6px' }}>
-              {currentItem.german}
-            </div>
-            
-            <div style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '16px' }}>
-              {activeMode === 'gender' 
-                ? `Identify article (Meaning: "${currentItem.english}")` 
-                : 'Select matching English translation'}
+          {/* Question Presentation */}
+          <div style={{ textAlign: 'center', padding: '10px 0 20px 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '6px' }}>
+              <span style={{ fontSize: '42px', fontWeight: '800', letterSpacing: '-0.02em', color: '#ffffff' }}>
+                {activeMode === 'cipher' ? currentItem.source_english : currentItem.german}
+              </span>
+              <button
+                onClick={() => speakGerman(currentItem.german)}
+                title="Play Audio (Spacebar)"
+                style={{ background: '#1e293b', border: 'none', color: '#38bdf8', width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                🔊
+              </button>
             </div>
 
-            {/* Pattern / Rule Hint Button */}
+            <div style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '18px' }}>
+              {activeMode === 'gender' && `Select grammatical article (Meaning: "${currentItem.english}")`}
+              {activeMode === 'recognition' && 'Select matching English translation'}
+              {activeMode === 'cipher' && `Transform English root to German using rule: [${currentItem.shift_rule}]`}
+            </div>
+
+            {/* Collapsible Pattern Hint */}
             {currentItem.tip && !feedback && (
-              <div style={{ marginBottom: '20px' }}>
+              <div style={{ marginBottom: '22px' }}>
                 <button
-                  onClick={() => setShowHint(!showHint)}
+                  onClick={() => setShowPattern(s => !s)}
                   style={{ background: 'none', border: 'none', color: '#38bdf8', fontSize: '13px', cursor: 'pointer', textDecoration: 'underline' }}
                 >
-                  {showHint ? 'Hide Linguistic Pattern' : '💡 Show Linguistic Pattern'}
+                  {showPattern ? 'Hide Structural Rule [H]' : '💡 Reveal Structural Rule [H]'}
                 </button>
-                {showHint && (
-                  <div style={{ marginTop: '8px', padding: '10px 14px', backgroundColor: '#0f172a', border: '1px solid #334155', borderRadius: '8px', fontSize: '13px', color: '#cbd5e1', lineHeight: '1.4' }}>
+                {showPattern && (
+                  <div style={{ marginTop: '10px', padding: '12px 16px', backgroundColor: '#0a101d', border: '1px solid #1e293b', borderRadius: '8px', fontSize: '13px', color: '#cbd5e1', lineHeight: '1.5', textAlign: 'left' }}>
                     {currentItem.tip}
                   </div>
                 )}
               </div>
             )}
 
-            {/* Feedback Display */}
+            {/* Post-Answer Feedback Banner */}
             {feedback ? (
-              <div style={{ padding: '16px', borderRadius: '8px', backgroundColor: feedback.ok ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)', border: `1px solid ${feedback.ok ? '#059669' : '#dc2626'}`, textAlign: 'left' }}>
-                <div style={{ fontSize: '16px', fontWeight: '700', color: feedback.ok ? '#34d399' : '#f87171', marginBottom: feedback.tip ? '6px' : '0' }}>
-                  {feedback.msg}
+              <div style={{ padding: '16px 20px', borderRadius: '10px', backgroundColor: feedback.status === 'correct' ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)', border: `1px solid ${feedback.status === 'correct' ? '#059669' : '#dc2626'}`, textAlign: 'left' }}>
+                <div style={{ fontSize: '15px', fontWeight: '800', color: feedback.status === 'correct' ? '#34d399' : '#f87171', marginBottom: '4px' }}>
+                  {feedback.headline}
+                </div>
+                <div style={{ fontSize: '13px', color: '#f8fafc', marginBottom: '8px' }}>
+                  {feedback.subtext}
                 </div>
                 {feedback.tip && (
-                  <div style={{ fontSize: '13px', color: '#e2e8f0', lineHeight: '1.4' }}>
-                    <strong>Rule:</strong> {feedback.tip}
+                  <div style={{ fontSize: '12px', color: '#94a3b8', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '8px', lineHeight: '1.4' }}>
+                    <strong>Linguistic Logic:</strong> {feedback.tip}
                   </div>
                 )}
               </div>
             ) : activeMode === 'gender' ? (
+              /* Gender Buttons with Keyboard Annotations */
               <div style={{ display: 'flex', justifyContent: 'center', gap: '12px' }}>
-                <button onClick={() => submitGender('der')} style={{ flex: 1, padding: '14px', fontSize: '18px', fontWeight: '700', backgroundColor: '#0284c7', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>der</button>
-                <button onClick={() => submitGender('die')} style={{ flex: 1, padding: '14px', fontSize: '18px', fontWeight: '700', backgroundColor: '#db2777', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>die</button>
-                <button onClick={() => submitGender('das')} style={{ flex: 1, padding: '14px', fontSize: '17px', fontWeight: '700', backgroundColor: '#059669', color: '#fff', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>das</button>
-              </div>
-            ) : (
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                {options.map((opt, i) => (
+                {['der', 'die', 'das'].map((art, idx) => (
                   <button
-                    key={i}
-                    onClick={() => submitTranslationChoice(opt)}
-                    style={{ padding: '14px 16px', fontSize: '15px', fontWeight: '600', backgroundColor: '#0f172a', color: '#f8fafc', border: '1px solid #334155', borderRadius: '8px', cursor: 'pointer' }}
+                    key={art}
+                    onClick={() => handleGenderChoice(art)}
+                    style={{
+                      flex: 1,
+                      padding: '16px',
+                      fontSize: '18px',
+                      fontWeight: '800',
+                      backgroundColor: art === 'der' ? '#0284c7' : art === 'die' ? '#db2777' : '#059669',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
                   >
-                    {opt}
+                    <span>{art}</span>
+                    <span style={{ fontSize: '10px', opacity: 0.7 }}>[{idx + 1}]</span>
                   </button>
                 ))}
               </div>
+            ) : activeMode === 'recognition' ? (
+              /* Recognition Multiple Choice */
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                {options.map((opt, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleRecognitionChoice(opt)}
+                    style={{ padding: '14px 16px', fontSize: '14px', fontWeight: '600', backgroundColor: '#0a101d', color: '#f8fafc', border: '1px solid #1e293b', borderRadius: '8px', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                  >
+                    <span>{opt}</span>
+                    <span style={{ fontSize: '11px', color: '#64748b' }}>[{i + 1}]</span>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              /* Cognate Cipher Input Form */
+              <form onSubmit={handleCipherSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                <input
+                  type="text"
+                  value={cipherInput}
+                  onChange={e => setCipherInput(e.target.value)}
+                  placeholder="Type German equivalent..."
+                  autoFocus
+                  style={{ width: '100%', maxWidth: '380px', padding: '14px 16px', fontSize: '18px', fontWeight: '700', borderRadius: '8px', border: '1px solid #334155', backgroundColor: '#0a101d', color: '#ffffff', outline: 'none', textAlign: 'center', boxSizing: 'border-box' }}
+                />
+                <button type="submit" style={{ padding: '12px 36px', fontSize: '14px', fontWeight: '800', backgroundColor: '#f59e0b', color: '#090d16', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>
+                  Execute Transformation [Enter]
+                </button>
+              </form>
             )}
           </div>
         </div>
       )}
 
+      {/* GAME OVER SUMMARY SCREEN */}
       {view === 'RESULT' && (
-        <div style={{ width: '100%', maxWidth: '420px', background: '#1e293b', padding: '36px 28px', borderRadius: '16px', border: '1px solid #334155', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '26px', color: '#ef4444', margin: '0 0 10px 0', fontWeight: '800' }}>SESSION COMPLETE</h2>
-          <p style={{ color: '#94a3b8', fontSize: '16px', margin: '0 0 24px 0' }}>Final Score: <strong style={{ color: '#38bdf8' }}>{score}</strong></p>
-          <button onClick={() => setView('MENU')} style={{ padding: '12px 28px', fontSize: '15px', fontWeight: '700', backgroundColor: '#38bdf8', color: '#0f172a', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>Return to Menu</button>
+        <div style={{ width: '100%', maxWidth: '440px', background: '#131b2e', padding: '36px 28px', borderRadius: '16px', border: '1px solid #1e293b', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '24px', color: '#ef4444', margin: '0 0 10px 0', fontWeight: '800' }}>SESSION TERMINATED</h2>
+          <p style={{ color: '#94a3b8', fontSize: '15px', margin: '0 0 24px 0' }}>Final Session Score: <strong style={{ color: '#38bdf8' }}>{score}</strong></p>
+          <button onClick={() => setView('MENU')} style={{ padding: '12px 28px', fontSize: '14px', fontWeight: '800', backgroundColor: '#38bdf8', color: '#090d16', border: 'none', borderRadius: '8px', cursor: 'pointer' }}>
+            Return to Curriculum
+          </button>
         </div>
       )}
     </div>
